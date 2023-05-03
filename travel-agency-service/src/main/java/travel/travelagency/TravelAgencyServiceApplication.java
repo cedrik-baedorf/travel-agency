@@ -29,7 +29,7 @@ public class TravelAgencyServiceApplication extends Application {
     /**
      * Directory of language files
      */
-    public static final String LANGUAGE_DIRECTORY = "src/main/resources/languages/";
+    public static final String LANGUAGE_DIRECTORY = "travel-agency-service/src/main/resources/languages/";
 
     private static final String MSG_FXML_LOADING_FAILED = "Unable to load fxml file with path %s";
 
