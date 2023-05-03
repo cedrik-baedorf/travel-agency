@@ -1,0 +1,9 @@
+<archetype>
+  <id>travel-agency-api</id>
+  <sources>
+    <source>src/main/java/App.java</source>
+  </sources>
+  <testSources>
+    <source>src/test/java/AppTest.java</source>
+  </testSources>
+</archetype>
