@@ -1,4 +1,4 @@
-module travel.travelagency {
+module travelagency.service {
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.web;
