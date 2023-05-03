@@ -7,6 +7,7 @@
   <artifactId>travel-agency</artifactId>
   <version>1.0</version>
   <packaging>pom</packaging>
+  <name>Travel Agency</name>
 
   <modules>
     <module>travel-agency-service</module>
