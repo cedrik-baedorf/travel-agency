@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<ScrollPane hbarPolicy="NEVER" prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travel.travelagency.controllers.ViewBookingsController">
+    <content>
+        <Pane prefHeight="1022" prefWidth="1440">
+            <children>
+                <Group id="taskbar">
+                    <Rectangle id="background" fill="#FFFFFF" height="102" width="1600">
+                    </Rectangle>
+                    <ImageView id="companyLogo" layoutX="160" layoutY="10" fitHeight="88" fitWidth="133" pickOnBounds="true" preserveRatio="true">
+                        <Image url="@../../../drawable/company_logo_2.png"/>
+                    </ImageView>
+                    <Text fx:id="agencyName" fill="#3B768A" layoutX="310" layoutY="60" wrappingWidth="500">
+                        <font>
+                            <Font name="Noto Serif Tamil" size="30" />
+                        </font>
+                    </Text>
+                    <Group id="taskbarTexts" layoutX="580" layoutY="60">
+                        <Text fx:id="home" fill="#000000" text="Home" textAlignment="CENTER" wrappingWidth="150" onMouseClicked="#_home_onClick">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="searchBookings" fill="#000000" layoutX="160" onMouseClicked="#_searchBookings_onClick" text="Bookings" textAlignment="CENTER" wrappingWidth="150">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="createBooking" fill="#AAAAAA" layoutX="320" text="New Trip" textAlignment="CENTER" wrappingWidth="150">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Button fx:id="logoutButton" layoutX="500" layoutY="-25" textAlignment="CENTER" onAction="#_logout_onClick">
+                            <font>
+                                <Font name="Mako" size="20" />
+                            </font>
+                        </Button>
+                    </Group>
+                    <Rectangle id="dividerLine" fill="#3B768A" height="1" layoutY="102" width="1600"/>
+                </Group>
+                <Group fx:id="searchBookingGroup" layoutX="255" layoutY="180">
+                    <Text fx:id="searchBookingTitle" fill="#3B768A" text="Search for an existing booking" wrappingWidth="800">
+                        <font>
+                            <Font name="Merriweather" size="40" />
+                        </font>
+                    </Text>
+                    <Group id="bookingIDGroup" layoutY="40">
+                        <Text fx:id="bookingIDText" fill="#000000" text="Booking No." textAlignment="CENTER" wrappingWidth="200">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="bookingIDTextField" layoutY="30" maxWidth="200" onAction="#_search_bookings_onClick">
+                            <font>
+                                <Font name="Poppins" size="16" />
+                            </font>
+                        </TextField>
+                    </Group>
+                    <Group id="customerNameGroup" layoutX="210" layoutY="40">
+                        <Text fx:id="customerNameText" fill="#000000" text="Customer Name" textAlignment="CENTER" wrappingWidth="200">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="customerNameTextField"  layoutY="30" maxWidth="200" onAction="#_search_bookings_onClick">
+                            <font>
+                                <Font name="Poppins" size="16" />
+                            </font>
+                        </TextField>
+                    </Group>
+                    <Group id="customerIDGroup" layoutX="420" layoutY="40">
+                        <Text fx:id="customerIDText" fill="#000000" text="Customer ID" textAlignment="CENTER" wrappingWidth="200">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <TextField fx:id="customerIDTextField" layoutY="30" maxWidth="200" onAction="#_search_bookings_onClick">
+                            <font>
+                                <Font name="Poppins" size="16" />
+                            </font>
+                        </TextField>
+                    </Group>
+                    <Button fx:id= "searchBookingButton" layoutX="746.0" layoutY="40" text="SEARCH" textAlignment="CENTER" onAction="#_search_bookings_onClick">
+                        <font>
+                            <Font name="Mako" size="24" />
+                        </font>
+                    </Button>
+                </Group>
+                <Group fx:id="bookingDetailsGroup" layoutX="255" layoutY="180">
+                    <Text fx:id="bookingDetailsTitle" fill="#3B768A" wrappingWidth="800">
+                        <font>
+                            <Font name="Merriweather" size="40" />
+                        </font>
+                    </Text>
+                    <Group id="bookingMasterDataGroup" layoutY="40">
+                        <Text fx:id="bookingMasterDataBookingIDText" fill="#000000" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataBookingID" fill="#000000" layoutX="160" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataCustomerIDText" fill="#000000" layoutY="25" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataCustomerID" fill="#000000" layoutX="160" layoutY="25" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataCustomerNameText" fill="#000000" layoutY="50" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataCustomerName" fill="#000000" layoutX="160" layoutY="50" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+
+                        <Text fx:id="bookingMasterDataDateText" fill="#000000" layoutX="320" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataDate" fill="#000000" layoutX="480" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataPriceText" fill="#000000" layoutX="320" layoutY="25" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataPrice" fill="#000000" layoutX="480" layoutY="25" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataCurrencyText" fill="#000000" layoutX="320" layoutY="50" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                        <Text fx:id="bookingMasterDataCurrency" fill="#000000" layoutX="480" layoutY="50" wrappingWidth="160">
+                            <font>
+                                <Font name="Poppins" size="20" />
+                            </font>
+                        </Text>
+                    </Group>
+                    <Button fx:id= "backButton" layoutX="746.0" layoutY="40" textAlignment="CENTER" onAction="#_searchBookings_onClick">
+                        <font>
+                            <Font name="Mako" size="24" />
+                        </font>
+                    </Button>
+                </Group>
+                <Group id="bookingsListGroup" layoutX="160" layoutY="350">
+                    <TableView fx:id="bookingsTableView" minHeight="20" maxHeight="500" onMouseClicked="#_bookingsTableView_onClick">
+                    </TableView>
+                    <TableView fx:id="tripTableView" minHeight="20" maxHeight="500" onMouseClicked="#_tripTableView_onClick">
+                    </TableView>
+                </Group>
+            </children>
+        </Pane>
+    </content>
+</ScrollPane>
