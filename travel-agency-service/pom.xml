@@ -12,10 +12,8 @@
     <name>Travel Agency Service</name>
 
     <properties>
-        <java.version>1.19.2</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <javafx.version>19.0.2.1</javafx.version>
-        <junit.version>5.9.2</junit.version>
         <controlsfx.version>11.1.2</controlsfx.version>
         <formsfx.version>11.6.0</formsfx.version>
         <ikonli.version>12.3.1</ikonli.version>
@@ -69,18 +67,6 @@
             <groupId>org.kordamp.bootstrapfx</groupId>
             <artifactId>bootstrapfx-core</artifactId>
             <version>${bootstrpfx.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>${junit.version}</version>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.mockito</groupId>

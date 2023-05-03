@@ -13,4 +13,25 @@
     <module>travel-agency-service</module>
     <module>travel-agency-api</module>
   </modules>
+
+  <properties>
+    <java.version>1.19.2</java.version>
+    <junit.version>5.9.2</junit.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-engine</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
 </project>
