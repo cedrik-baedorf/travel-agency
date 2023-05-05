@@ -1,6 +1,6 @@
 # Travel Agency
 
-Travel Agency is a comprehensive Java-based project that helps users manage their travel data. It consists of two primary components: `Travel-Agency-Service`, a JavaFX application for managing travel data such as bookings, flights, and hotels for a specific customer, and `Travel-Agency-API`, an API that provides the necessary endpoints for interacting with the travel data.
+Travel Agency is a comprehensive Java-based project that helps users manage their travelagency data. It consists of two primary components: `Travel-Agency-Service`, a JavaFX application for managing travelagency data such as bookings, flights, and hotels for a specific customer, and `Travel-Agency-API`, an API that provides the necessary endpoints for interacting with the travelagency data.
 
 ## Table of Contents
 
@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository:
 
 ```
-git clone https://github.com/cedrik-baedorf/travel-agency.git
+git clone https://github.com/cedrik-baedorf/travelagency-agency.git
 ```
 
 2. Follow the installation instructions for the `Travel-Agency-Service` submodule:
