@@ -1,6 +1,6 @@
 # Travel Agency API
 
-Welcome to the Travel Agency API! This RESTful API provides easy access to hotel and flight connection data for developers and travel agencies. With a simple and straightforward interface, you can quickly integrate our API into your applications to offer rich travel information to your users.
+Welcome to the Travel Agency API! This RESTful API provides easy access to hotel and flight connection data for developers and travelagency agencies. With a simple and straightforward interface, you can quickly integrate our API into your applications to offer rich travelagency information to your users.
 
 ## Features
 

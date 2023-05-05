@@ -1,6 +1,6 @@
 # Travel Agency Service
 
-Travel Agency Service is a JavaFX-based application that allows users to manage their travel data such as bookings, flights, and hotels for a specific customer. It offers a user-friendly interface and supports multiple languages.
+Travel Agency Service is a JavaFX-based application that allows users to manage their travelagency data such as bookings, flights, and hotels for a specific customer. It offers a user-friendly interface and supports multiple languages.
 
 ## Table of Contents
 
@@ -19,13 +19,13 @@ Travel Agency Service is a JavaFX-based application that allows users to manage 
 1. Clone the repository:
 
 ```
-git clone https://github.com/cedrik-baedorf/travel-agency.git
+git clone https://github.com/cedrik-baedorf/travelagency-agency.git
 ```
 
-2. Navigate to the `travel-agency/travel-agency-service/` directory:
+2. Navigate to the `travelagency-agency/travelagency-agency-service/` directory:
 
 ```
-cd travel-agency/travel-agency-service/
+cd travelagency-agency/travelagency-agency-service/
 ```
 
 3. Run all three SQL files to set up the database:

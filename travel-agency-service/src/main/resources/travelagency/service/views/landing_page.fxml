@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.shape.*?>
+
+<ScrollPane hbarPolicy="NEVER" prefWidth="1440" prefHeight="1024" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelagency.service.controllers.LandingPageController">
+    <content>
+        <Pane prefWidth="1440" prefHeight="1022" >
+            <children>
+                <Rectangle id="background1" width="1440" height="1024" fill="#FFFFFF">
+                </Rectangle>
+                <Rectangle id="background2" width="720" height="1024" fill="#FFFFFF">
+                </Rectangle>
+                <ImageView id="companyLogo" pickOnBounds="true" preserveRatio="true" layoutX="209" layoutY="155"
+                           fitWidth="301" fitHeight="185">
+                    <Image url="@../../../drawable/company_logo.png"/>
+                </ImageView>
+                <ImageView id="complementaryImage" pickOnBounds="true" preserveRatio="true" layoutX="720" layoutY="66"
+                           fitWidth="720" fitHeight="1024">
+                    <Image url="@../../../drawable/complementary_image.png"/>
+                </ImageView>
+
+                <Text fx:id="headerMessage" fill="#000000" layoutX="200" layoutY="400" wrappingWidth="400" >
+                    <font>
+                        <Font name="Poppins" size="40" />
+                    </font>
+                </Text>
+
+                <Group id="credentialsGroup" layoutY="452" layoutX="161">
+                    <Group fx:id="usernameGroup">
+                        <TextField fx:id="usernameTextField" onAction="#_usernameTextField_onClick" maxWidth="400">
+                            <font>
+                                <Font name="Poppins" size="32" />
+                            </font>
+                        </TextField>
+                    </Group>
+
+                    <Group id="passwordGroup" layoutY="80">
+                        <PasswordField fx:id="passwordTextField" onAction="#_passwordTextField_onClick" maxWidth="400">
+                            <font>
+                                <Font name="Poppins" size="32" />
+                            </font>
+                        </PasswordField>
+                    </Group>
+
+                    <Group id="infoMessageGroup" layoutY="190">
+                        <Text fx:id="infoMessage">
+                            <font>
+                                <Font name="Poppins" size="32"/>
+                            </font>
+                        </Text>
+                    </Group>
+
+                    <Group id="loginButtonGroup" layoutY="220">
+                        <Button fx:id="loginButton" textAlignment="CENTER" onAction="#_loginButton_onClick">
+                            <font>
+                                <Font name="Mako" size="32" />
+                            </font>
+                        </Button>
+                    </Group>
+                </Group>
+            </children>
+        </Pane>
+    </content>
+</ScrollPane>
