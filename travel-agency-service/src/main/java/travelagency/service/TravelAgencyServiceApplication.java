@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import travelagency.service.controllers.LandingPageController;
 import travelagency.service.controllers.TravelAgencyController;
-import travelagency.service.database.TravelAgencyEntityManagerFactory;
+import travelagency.service.database.TravelAgencyEntityManagerFactoryImplementation;
 
 import javax.persistence.EntityManager;
 
@@ -36,14 +36,14 @@ public class TravelAgencyServiceApplication extends Application {
     private Stage stage;
     private String mainView = "";
 
-    private TravelAgencyEntityManagerFactory entityManagerFactory;
+    private TravelAgencyEntityManagerFactoryImplementation entityManagerFactory;
 
     static final Logger logger = LogManager.getLogger(TravelAgencyServiceApplication.class);
 
     @Override
     public void start(Stage stage) {
         //read parameters from main(String[] args) method
-        List<String> parameters = this.getParameters().getRaw();
+        List<String> parameters = getParameters().getRaw();
         switch(parameters.size()) {
             case 2: languageFile = parameters.get(1);
             case 1: mainView = parameters.get(0);
@@ -92,7 +92,7 @@ public class TravelAgencyServiceApplication extends Application {
         return languageFile;
     }
 
-    public void setEntityManagerFactory(TravelAgencyEntityManagerFactory factory) {
+    public void setEntityManagerFactory(TravelAgencyEntityManagerFactoryImplementation factory) {
         this.entityManagerFactory = factory;
     }
 

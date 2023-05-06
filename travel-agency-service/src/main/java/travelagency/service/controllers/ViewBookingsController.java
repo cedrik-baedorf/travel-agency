@@ -97,12 +97,12 @@ public class ViewBookingsController extends TravelAgencyController {
      */
     public void initialize() {
         setTexts(application.getLanguageFile());
-        this.service = new TravelAgencyViewConsumptionServiceImplementation(
+        service = new TravelAgencyViewConsumptionServiceImplementation(
             new TravelAgencyViewDataServiceImplementation(
                 application.createEntityManager()
             )
         );
-        this.loadBookingsTableView();
+        loadBookingsTableView();
     }
 
     /**
