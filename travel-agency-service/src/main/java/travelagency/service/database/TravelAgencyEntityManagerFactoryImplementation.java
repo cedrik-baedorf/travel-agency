@@ -19,13 +19,19 @@ import org.hibernate.service.spi.ServiceException;
 public class TravelAgencyEntityManagerFactoryImplementation implements TravelAgencyEntityManagerFactory {
 
   /**
-   * Logger for errors and additional information
+   * Logger for errors and additional information.
    */
   static final Logger logger = LogManager.getLogger(TravelAgencyEntityManagerFactoryImplementation.class);
 
+  /**
+   * Error message for a missing property.
+   */
   private static final String MSG_MISSING_PROPERTY =
-        "Unable to create EntityManagerFactor without property %s";
+        "Unable to create EntityManagerFactory without property %s";
 
+  /**
+   * Error message for an unsuccessful attempt to create an <code>EntityManagerFactory</code> object.
+   */
   private static final String MSG_UNABLE_TO_CREATE =
         "Unable to create EntityManagerFactory using properties %s and persistence unit %s";
 
@@ -35,8 +41,10 @@ public class TravelAgencyEntityManagerFactoryImplementation implements TravelAge
   private final EntityManagerFactory entityManagerFactory;
 
   /**
-   * This constructor reads the provided database properties file and creates an <code>EntityManagerFactory</code>
-   * object which creates <code>EntityManager</code> objects.
+   * This constructor creates a <code>TravelAgencyEntityManagerFactory</code> object which is connected to the
+   * persistence unit specified in the <code>db.properties</code> file using the login properties provided and
+   * driver and url properties defined in the <code>db.properties</code> file.
+   * @param loginProperties <code>Map</code> object with persistence unit properties
    */
   public TravelAgencyEntityManagerFactoryImplementation(Map<String, String> loginProperties) {
     //check if user property is set
@@ -81,9 +89,9 @@ public class TravelAgencyEntityManagerFactoryImplementation implements TravelAge
   }
 
   /**
-   * This method is used to create an <code>EntityManager</code> object that can persist, read, update, and delete
-   * Entities in the database connected to the peristence unit specified in the constructor.
-   * @return <code>EntityManager</code> object connected to the database
+   * This method implements the method <code>createEntityManager()</code> from the interface by using the
+   * <code>createEntityManager()</code> method of the <code>EntityManagerFactory</code> created in the constructor
+   * @return <code>EntityManager</code> object to be used to find and persist entities
    */
   public EntityManager createEntityManager() {
     return entityManagerFactory.createEntityManager();
