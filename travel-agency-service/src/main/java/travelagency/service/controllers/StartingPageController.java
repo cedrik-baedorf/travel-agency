@@ -15,6 +15,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import travelagency.service.TravelAgencyServiceApplication;
 
+/**
+ * Controller to view 'starting_page.fxml'
+ * @author I551381
+ * @version 1.0
+ */
 public class StartingPageController extends TravelAgencyController {
 
     /**

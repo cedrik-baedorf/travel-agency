@@ -24,14 +24,29 @@ import travelagency.service.service.data.TravelAgencyViewDataServiceImplementati
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * Controller to view 'view_trip.fxml'
+ * @author I551381
+ * @version 1.0
+ */
 public class ViewTripController extends TravelAgencyController {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(ViewTripController.class);
 
-    private Integer tripID;
-
+    /**
+     * Name of the corresponding <code>.fxml</code> file
+     */
     public static final String VIEW_NAME = "view_trip.fxml";
 
+    /**
+     * trip ID of the trip whose details shall be displayed in this instance
+     */
+    private Integer tripID;
+
+    //fxml elements
     //task bar
     @FXML public Text agencyName;
 
@@ -85,10 +100,18 @@ public class ViewTripController extends TravelAgencyController {
         logoutButton.setText(languageProperties.getProperty("menu.logout", "LOG OUT"));
     }
 
+    /**
+     * Set id of the trip to be displayed
+     * @param tripID id of the trip
+     */
     public void setTripID(int tripID) {
         this.tripID = tripID;
     }
 
+    /**
+     * This private method uses the <code>service</code> attribute to load
+     * a <code>List</code> object of <code>FlightBookingConsumable</code> objects.
+     */
     private void loadFlightBookings() {
         if(tripID == null)
             return;
@@ -98,10 +121,15 @@ public class ViewTripController extends TravelAgencyController {
             flightInformation.getChildren().add(flightGroup);
             flightGroup.setLayoutY(i * 250);
         }
-        scrollPane.requestFocus();
-        scrollPane.requestLayout();
     }
 
+    /**
+     * dynamically creates a java fx <code>Group</code> element neatly displaying
+     * the <code>FlightBookingConsumable</code> object provided as a parameter
+     * @param flight <code>FlightBookingConsumable</code> object to be displayed
+     * @return <code>Group</code> element displaying necessary information from
+     *         the <code>FlightBookingConsumable</code> object.
+     */
     private Group createFlightGroup(FlightBookingConsumable flight) {
         Group flightBookingGroup = new Group();
 
@@ -133,6 +161,15 @@ public class ViewTripController extends TravelAgencyController {
         return flightBookingGroup;
     }
 
+    /**
+     * dynamically creates a java fx <code>Group</code> element with the
+     * parameters provided
+     * @param timeAsString time to be displayed
+     * @param airportCode airport code to be displayed
+     * @param timeZoneCode time zone to the time that is displayed
+     * @param flightCodeText flight code to be displayed
+     * @return <code>Group</code> element of the parameters provided
+     */
     private Group createAirportGroup(
         String timeAsString, String airportCode, String timeZoneCode, String flightCodeText
     ) {
@@ -176,11 +213,18 @@ public class ViewTripController extends TravelAgencyController {
         return airportGroup;
     }
 
+    /**
+     * listener for home button in taskbar
+     */
     @FXML
     private void _home_onClick() {
         //code
     }
 
+    /**
+     * listener for search bookings button in taskbar
+     */
+    @FXML
     public void _searchBookings_onClick() {
         FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(ViewBookingsController.VIEW_NAME);
         try {
@@ -194,6 +238,9 @@ public class ViewTripController extends TravelAgencyController {
         }
     }
 
+    /**
+     * listener for logout button in taskbar
+     */
     public void _logout_onClick() {
         service = null;
         application.setEntityManagerFactory(null);

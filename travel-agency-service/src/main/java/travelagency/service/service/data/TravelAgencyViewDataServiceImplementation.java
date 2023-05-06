@@ -13,9 +13,15 @@ import travelagency.service.entities.Trip;
 
 public class TravelAgencyViewDataServiceImplementation implements TravelAgencyViewDataService {
 
-  private final EntityManager EM;
-
+  /**
+   * Logger for errors and additional information
+   */
   static final Logger logger = LogManager.getLogger(TravelAgencyViewDataServiceImplementation.class);
+
+  /**
+   * <code>EntityManager</code> object used to retrieve entities from the database.
+   */
+  private final EntityManager EM;
 
   /**
    * Message if the customerLastName parameter is equal to <code>null</code>

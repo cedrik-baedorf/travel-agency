@@ -10,8 +10,15 @@ import java.util.List;
 
 public class TravelAgencyViewConsumptionServiceImplementation implements TravelAgencyViewConsumptionService {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(TravelAgencyViewConsumptionServiceImplementation.class);
 
+    /**
+     * <code>TravelAgencyViewDataService</code> used to retrieve entities from
+     * the database and convert them into their corresponding consumable objects.
+     */
     private final TravelAgencyViewDataService dataService;
 
     public TravelAgencyViewConsumptionServiceImplementation(TravelAgencyViewDataService dataService) {
