@@ -38,7 +38,7 @@ public class ViewBookingsController extends TravelAgencyController {
 
     public static final String VIEW_NAME = "view_bookings.fxml";
 
-    //title bar
+    //task bar
     @FXML public Text agencyName;
 
     @FXML public Text home;
@@ -93,7 +93,7 @@ public class ViewBookingsController extends TravelAgencyController {
     }
 
     /**
-     * This method is called when the landing_page.fxml file is loaded
+     * This method is called when the view_bookings.fxml file is loaded
      */
     public void initialize() {
         setTexts(application.getLanguageFile());
@@ -284,8 +284,7 @@ public class ViewBookingsController extends TravelAgencyController {
         customerNameTextField.setText(customerName);
     }
 
-    public void _home_onClick(MouseEvent mouseEvent) {
-        mouseEvent.consume();
+    public void _home_onClick() {
         FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(StartingPageController.VIEW_NAME);
         try {
             loader.setControllerFactory(c -> new StartingPageController(application));

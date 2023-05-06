@@ -1,14 +1,22 @@
 package travelagency.service.controllers;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.LoadException;
 import javafx.scene.Group;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextAlignment;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import travelagency.service.TravelAgencyServiceApplication;
 import travelagency.service.service.consumption.FlightBookingConsumable;
 import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
@@ -16,29 +24,67 @@ import travelagency.service.service.consumption.TravelAgencyViewConsumptionServi
 import travelagency.service.service.data.TravelAgencyViewDataServiceImplementation;
 
 import java.util.List;
+import java.util.Properties;
 
 public class ViewTripController extends TravelAgencyController {
 
+    static final Logger logger = LogManager.getLogger(ViewTripController.class);
+
     private Integer tripID;
 
-    private TravelAgencyViewConsumptionService service;
-
     public static final String VIEW_NAME = "view_trip.fxml";
+
+    //task bar
+    @FXML public Text agencyName;
+
+    @FXML public Text home;
+    @FXML public Text searchBookings;
+    @FXML public Text createBooking;
+    @FXML public Button logoutButton;
 
     @FXML public ScrollPane scrollPane;
     @FXML public Group flightInformation;
 
+    /**
+     * service used to display trip details
+     */
+    private TravelAgencyViewConsumptionService service;
+
+    /**
+     * Constructor for this controller passing the <code>Application</code> object this
+     * instance belongs to
+     * @param application Application calling the contructor
+     */
     public ViewTripController(TravelAgencyServiceApplication application) {
         this.application = application;
     }
 
+    /**
+     * This method is called when the view_trip.fxml file is loaded
+     */
     public void initialize() {
+        setTexts(application.getLanguageFile());
         service = new TravelAgencyViewConsumptionServiceImplementation(
             new TravelAgencyViewDataServiceImplementation(
                 application.createEntityManager()
             )
         );
         loadFlightBookings();
+    }
+
+    /**
+     * This private method sets all texts to the corresponding translation in the language file provided.
+     * @param languageFile language file name
+     */
+    private void setTexts(String languageFile) {
+        Properties languageProperties = LanguagePropertiesLoader.loadProperties(
+                TravelAgencyServiceApplication.LANGUAGE_DIRECTORY + "starting_page/", languageFile
+        );
+        agencyName.setText(languageProperties.getProperty("menu.agencyName", "Agency Reis"));
+        home.setText(languageProperties.getProperty("menu.home", "Home"));
+        createBooking.setText(languageProperties.getProperty("menu.createBooking", "New Booking"));
+        searchBookings.setText(languageProperties.getProperty("menu.showBookings", "Show Bookings"));
+        logoutButton.setText(languageProperties.getProperty("menu.logout", "LOG OUT"));
     }
 
     public void setTripID(int tripID) {
@@ -162,7 +208,24 @@ public class ViewTripController extends TravelAgencyController {
         //code
     }
 
+    public void _searchBookings_onClick() {
+        FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(ViewBookingsController.VIEW_NAME);
+        try {
+            ViewBookingsController controller = new ViewBookingsController(application);
+            loader.setControllerFactory(c -> new ViewBookingsController(application));
+            Scene scene = application.loadScene(loader);
+            application.setScene(scene);
+            controller._searchBookings_onClick();
+        } catch (LoadException e) {
+            logger.error(e.getMessage());
+        }
+    }
 
+    public void _logout_onClick() {
+        service = null;
+        application.setEntityManagerFactory(null);
+        application.setRoot(LandingPageController.VIEW_NAME, new LandingPageController(application));
+    }
 }
 
 
