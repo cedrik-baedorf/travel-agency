@@ -8,280 +8,80 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane hbarPolicy="NEVER" prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelagency.service.controllers.ViewTripController">
+<ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelagency.service.controllers.ViewTripController">
     <content>
-        <Pane prefHeight="1022" prefWidth="1440">
+        <Pane prefWidth="1440">
             <children>
-                <Rectangle fx:id="_bg__booking_details" fill="#FFFFFF" height="1024" width="1440">
-                </Rectangle>
-                <!-- android style --><Group fx:id="back_button" layoutX="1110" layoutY="946" onMouseClicked="#back_button_onClick">
-
-                <!-- android style --><Group fx:id="frame_3" onMouseClicked="#frame_3_onClick">
-
-                <Text fx:id="new_booking" fill="#FFFFFF" layoutX="-3" layoutY="31" text="BACK" textAlignment="CENTER" wrappingWidth="211">
-                    <font>
-                        <Font name="Mako" size="24" />
-                    </font>
-                </Text>
-            </Group>
-
-            </Group>
-
-                <!-- android style --><Group fx:id="delete_button" layoutX="529" layoutY="946">
-
-                <!-- android style --><Group fx:id="frame_3_ek1" layoutX="0" layoutY="0" />
-
-            </Group>
-
-                <!-- android style --><Group fx:id="adjust_booking_button" layoutX="198" layoutY="946">
-
-                <!-- android style --><Group fx:id="frame_3_ek2" layoutX="0" layoutY="0" />
-
-            </Group>
-
                 <Rectangle fx:id="line_1" fill="#3B768A" height="1" layoutX="114" layoutY="922" width="1207">
                 </Rectangle>
-                <!-- android style --><Group fx:id="existing_bookings" layoutX="160" layoutY="142">
+                <Group fx:id="existing_bookings" layoutX="160" layoutY="142">
+                    <Group fx:id="exisiting_trip_6" layoutX="27" layoutY="13">
+                        <Group id="duration" layoutX="802" layoutY="8">
+                            <Text id="detailsDurationText" fill="#000000" layoutX="3.6666666666667" layoutY="20" textAlignment="CENTER" wrappingWidth="102">
+                                <font>
+                                    <Font name="Poppins" size="20" />
+                                </font>
+                            </Text>
+                            <Text id="detailsDuration" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="197">
+                                <font>
+                                    <Font name="Poppins" size="18" />
+                                </font>
+                            </Text>
+                        </Group>
+                        <Group id="destination" layoutX="566" layoutY="8">
+                            <Text id="detailsDateText" fill="#000000" layoutX="3.6666666666667" layoutY="20" textAlignment="CENTER" wrappingWidth="187">
+                                <font>
+                                    <Font name="Poppins" size="20" />
+                                </font>
+                            </Text>
+                            <Text id="detailsDate" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="258">
+                                <font>
+                                    <Font name="Poppins" size="18" />
+                                </font>
+                            </Text>
+                        </Group>
+                        <Group id="customerName" layoutX="347" layoutY="8">
+                            <Text id="detailsCustomerNameText" fill="#000000" layoutX="3.6666666666667" layoutY="20" textAlignment="CENTER" wrappingWidth="182">
+                                <font>
+                                    <Font name="Poppins" size="20" />
+                                </font>
+                            </Text>
+                            <Text id="detailsCustomerName" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="197">
+                                <font>
+                                    <Font name="Poppins" size="18" />
+                                </font>
+                            </Text>
+                        </Group>
+                        <Group id="customerID" layoutX="177" layoutY="8">
+                            <Text id="detailsCustomerIDText" fill="#000000" layoutX="3.6666666666667" layoutY="20" textAlignment="CENTER" wrappingWidth="140">
+                                <font>
+                                    <Font name="Poppins" size="20" />
+                                </font>
+                            </Text>
+                            <Text id="detailsCustomerID" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="121">
+                                <font>
+                                    <Font name="Poppins" size="18" />
+                                </font>
+                            </Text>
+                        </Group>
+                        <Group id="bookingID" layoutX="37" layoutY="8">
+                            <Text id="detailsBookingIDText" fill="#000000" layoutX="3.6666666666667" layoutY="20" textAlignment="CENTER" wrappingWidth="110">
+                                <font>
+                                    <Font name="Poppins" size="20" />
+                                </font>
+                            </Text>
+                            <Text id="detailsBookingID" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="118">
+                                <font>
+                                    <Font name="Poppins" size="18" />
+                                </font>
+                            </Text>
+                        </Group>
+                    </Group>
+                </Group>
 
-                <!-- android style --><Group fx:id="exisiting_trip_6" layoutX="27" layoutY="13">
+                <Group fx:id="flightInformation" layoutX="50" layoutY="300">
 
-                <!-- android style --><Group fx:id="duration" layoutX="802" layoutY="8">
-
-                <Text fx:id="duration_ek1" fill="#000000" layoutX="3.6666666666667" layoutY="20" text="Duration" textAlignment="CENTER" wrappingWidth="102">
-                    <font>
-                        <Font name="Poppins" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="_22_06_23___06_07_23" fill="#000000" layoutX="6" layoutY="52" text="22.06.23 - 06.07.23" wrappingWidth="197">
-                    <font>
-                        <Font name="Poppins" size="18" />
-                    </font>
-                </Text>
-            </Group>
-
-                <!-- android style --><Group fx:id="destination" layoutX="566" layoutY="8">
-
-                <Text fx:id="date_of_purchase" fill="#000000" layoutX="3.6666666666667" layoutY="20" text="Date of Purchase" textAlignment="CENTER" wrappingWidth="187">
-                    <font>
-                        <Font name="Poppins" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="_21_01_23" fill="#000000" layoutX="6" layoutY="52" text="21.01.23" wrappingWidth="258">
-                    <font>
-                        <Font name="Poppins" size="18" />
-                    </font>
-                </Text>
-            </Group>
-
-                <!-- android style --><Group fx:id="customer_name" layoutX="347" layoutY="8">
-
-                <Text fx:id="customer_name_ek1" fill="#000000" layoutX="3.6666666666667" layoutY="20" text="Customer Name" textAlignment="CENTER" wrappingWidth="182">
-                    <font>
-                        <Font name="Poppins" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="baedorf__cedrik" fill="#000000" layoutX="6" layoutY="52" text="Baedorf, Cedrik" wrappingWidth="197">
-                    <font>
-                        <Font name="Poppins" size="18" />
-                    </font>
-                </Text>
-            </Group>
-
-                <!-- android style --><Group fx:id="customer_id" layoutX="177" layoutY="8">
-
-                <Text fx:id="customer_id_ek1" fill="#000000" layoutX="3.6666666666667" layoutY="20" text="Customer ID" textAlignment="CENTER" wrappingWidth="140">
-                    <font>
-                        <Font name="Poppins" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="bace4927" fill="#000000" layoutX="6" layoutY="52" text="BACE4927" wrappingWidth="121">
-                    <font>
-                        <Font name="Poppins" size="18" />
-                    </font>
-                </Text>
-            </Group>
-
-                <!-- android style --><Group fx:id="order_no_" layoutX="37" layoutY="8">
-
-                <Text fx:id="order_no__ek1" fill="#000000" layoutX="3.6666666666667" layoutY="20" text="Order No." textAlignment="CENTER" wrappingWidth="110">
-                    <font>
-                        <Font name="Poppins" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="_18627406" fill="#000000" layoutX="6" layoutY="52" text="18627406" wrappingWidth="118">
-                    <font>
-                        <Font name="Poppins" size="18" />
-                    </font>
-                </Text>
-            </Group>
-
-            </Group>
-
-            </Group>
-
-                <!-- android style --><Group fx:id="hotel_information" layoutX="794" layoutY="348">
-
-                <!-- android style --><Group fx:id="hotel_information_ek1" layoutX="0" layoutY="0">
-
-
-                <Text fx:id="plaza_de_las_cortes__7_28014_madrid" fill="#000000" layoutX="394.66666666667" layoutY="430" text="Plaza de las Cortes, 7 28014 Madrid" wrappingWidth="230">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="westin_palace" fill="#000000" layoutX="189" layoutY="44" text="Westin Palace" wrappingWidth="304">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="36" />
-                    </font>
-                </Text>
-                <Text fx:id="room_333" fill="#000000" layoutX="29" layoutY="510" text="Room 333" wrappingWidth="185">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="24" />
-                    </font>
-                </Text>
-                <Text fx:id="booking_duration" fill="#000000" layoutX="23" layoutY="436" stroke="#000000" strokeWidth="1" text="Booking duration" wrappingWidth="228">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="24" />
-                    </font>
-                    <effect>
-                        <DropShadow color="000000" offsetX="0" offsetY="4" radius="4" />
-                    </effect>
-                </Text>
-                <Text fx:id="_22_06_23___06_07_23_ek1" fill="#000000" layoutX="23" layoutY="473" text="22.06.23 - 06.07.23" wrappingWidth="234">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="24" />
-                    </font>
-                </Text>
-            </Group>
-
-            </Group>
-
-                <!-- android style --><Group fx:id="taskbar" layoutX="-1" layoutY="0">
-
-                <Rectangle fx:id="rectangle_6" fill="#FFFFFF" height="102" layoutX="0" layoutY="0" width="1440">
-                </Rectangle>
-                <ImageView fx:id="ellipse_2" fitHeight="88" fitWidth="133" layoutX="160" layoutY="7" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../drawable/company_logo.png" />
-                    </image>
-                </ImageView>
-                <!-- android style --><Group fx:id="taskbar_texts" layoutX="740" layoutY="34">
-
-                <Text fx:id="_home" fill="#000000" layoutX="4" layoutY="24" onMouseClicked="#_home_onClick" text="Home" textAlignment="CENTER" wrappingWidth="89">
-                    <font>
-                        <Font name="Poppins" size="24" />
-                    </font>
-                </Text>
-                <Text fx:id="_new_trip" fill="#000000" layoutX="241" layoutY="24" onMouseClicked="#_new_trip_onClick" text="New Trip" textAlignment="CENTER" wrappingWidth="119">
-                    <font>
-                        <Font name="Poppins" size="24" />
-                    </font>
-                </Text>
-                <Text fx:id="_bookings" fill="#000000" layoutX="104" layoutY="24" onMouseClicked="#_bookings_onClick" text="Bookings" textAlignment="CENTER" wrappingWidth="125">
-                    <font>
-                        <Font name="Poppins" size="24" />
-                    </font>
-                </Text>
-            </Group>
-
-                <Rectangle fx:id="line_1_ek1" fill="#3B768A" height="1" layoutX="115" layoutY="102" width="1207">
-                </Rectangle>
-                <!-- android style --><Group fx:id="logout_button" layoutX="1111" layoutY="26">
-
-                <!-- android style --><Group fx:id="frame_3_ek3" layoutX="0" layoutY="0" onMouseClicked="#frame_3_ek3_onClick" />
-
-            </Group>
-
-                <Text fx:id="life_is_short__travel_often" fill="#3B768A" layoutX="317" layoutY="62" text="Life is short, travelagency often" wrappingWidth="458">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="30" />
-                    </font>
-                </Text>
-
-          <Button layoutX="1165.0" layoutY="28.0" text="LOG OUT" textAlignment="CENTER">
-              <font>
-                  <Font name="Mako" size="24" />
-              </font>
-          </Button>
-            </Group>
-
-                <!-- android style --><Group fx:id="flight_information" layoutX="43" layoutY="290">
-
-                <Rectangle fx:id="rectangle_7" fill="#D9D9D9" height="49" layoutX="0" layoutY="0" width="665">
-                </Rectangle>
-                <Text fx:id="thursday__june_22nd" fill="#000000" layoutX="15.333333333333" layoutY="33" text="Thursday, June 22nd" textAlignment="CENTER" wrappingWidth="287">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="28" />
-                    </font>
-                </Text>
-                <Text fx:id="_13_00_fra_to_mad" fill="#000000" layoutX="94.333333333333" layoutY="94" text="13:00    FRA to MAD" textAlignment="RIGHT" wrappingWidth="289">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="28" />
-                    </font>
-                </Text>
-                <Text fx:id="_16_00_arrive_madrid_airport" fill="#000000" layoutX="94.333333333333" layoutY="189" text="16:00    Arrive Madrid Airport" textAlignment="RIGHT" wrappingWidth="404">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="28" />
-                    </font>
-                </Text>
-                <Text fx:id="pst_spanair_airlines_302" fill="#000000" layoutX="117.66666666667" layoutY="130" text="PST         Spanair Airlines 302" textAlignment="RIGHT" wrappingWidth="282">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="pst_spanair_airlines_302_ek1" fill="#000000" layoutX="115.66666666667" layoutY="225" text="PST        Spanair Airlines 302" textAlignment="RIGHT" wrappingWidth="276">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="aircraft__airbus_a321___320_passenger_c43_nonstop_3h__00m" fill="#000000" layoutX="194.66666666667" layoutY="259" text="Aircraft: Airbus A321 / 320 Passenger C43 nonstop 3h, 00m" wrappingWidth="415">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <Rectangle fx:id="rectangle_8" fill="#D9D9D9" height="49" layoutX="0" layoutY="319" width="665">
-                </Rectangle>
-                <Text fx:id="thursday__july_6th" fill="#000000" layoutX="15.333333333333" layoutY="352" text="Thursday, July 6th" textAlignment="CENTER" wrappingWidth="253">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="28" />
-                    </font>
-                </Text>
-                <Text fx:id="_17_00_mad_to_mun" fill="#000000" layoutX="91.333333333333" layoutY="411" text="17:00    MAD to MUN" textAlignment="RIGHT" wrappingWidth="310">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="28" />
-                    </font>
-                </Text>
-                <Text fx:id="_19_40_arrive_munich_airport" fill="#000000" layoutX="95.333333333333" layoutY="505" text="19:40    Arrive Munich Airport" textAlignment="RIGHT" wrappingWidth="404">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="28" />
-                    </font>
-                </Text>
-                <Text fx:id="pst_spanair_airlines_302_ek2" fill="#000000" layoutX="114.66666666667" layoutY="447" text="PST         Spanair Airlines 302" textAlignment="RIGHT" wrappingWidth="282">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="pst_spanair_airlines_302_ek3" fill="#000000" layoutX="116.66666666667" layoutY="541" text="PST         Spanair Airlines 302" textAlignment="RIGHT" wrappingWidth="282">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <Text fx:id="aircraft__airbus_a321___320_passenger_a12_nonstop_2h__40m" fill="#000000" layoutX="200.66666666667" layoutY="575" text="Aircraft: Airbus A321 / 320 Passenger A12 nonstop 2h, 40m" wrappingWidth="415">
-                    <font>
-                        <Font name="Noto Serif Tamil" size="20" />
-                    </font>
-                </Text>
-                <ImageView fx:id="image_4" fitHeight="56" fitWidth="62" layoutX="14" layoutY="70" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../drawable/image_4.png" />
-                    </image>
-                </ImageView>
-                <ImageView fx:id="image_5" fitHeight="56" fitWidth="62" layoutX="11" layoutY="383" pickOnBounds="true" preserveRatio="true">
-                    <image>
-                        <Image url="@../../../drawable/image_4.png" />
-                    </image>
-                </ImageView>
-            </Group>
+                </Group>
 
                 <Text fx:id="hotel_information_ek2" fill="#3B768A" layoutX="929.33333333333" layoutY="322" text="Hotel Information" wrappingWidth="433">
                     <font>

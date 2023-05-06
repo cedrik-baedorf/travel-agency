@@ -99,12 +99,15 @@ public class TravelAgencyViewConsumptionServiceImplementation implements TravelA
             Flight flight = flightBooking.getFlight();
             FlightConnection connection = flight.getFlightConnection();
             flightBookingConsumables.add(new FlightBookingConsumable(
+                connection.getCarrierID() + connection.getConnectionID(),
                 connection.getDepartureAirport(),
                 flight.getDepartureTimestamp().toLocalDate().toString(),
                 flight.getDepartureTimestamp().toLocalTime().toString(),
+                flight.getDepartureTimestamp().getZone().toString(),
                 connection.getArrivalAirport(),
                 flight.getArrivalTimestamp().toLocalDate().toString(),
                 flight.getArrivalTimestamp().toLocalTime().toString(),
+                flight.getArrivalTimestamp().getZone().toString(),
                 flightBooking.getNumberOfPassengers(),
                 (int) flight.getFlightDuration().toMinutes(),
                 flightBooking.getTotalPrice()

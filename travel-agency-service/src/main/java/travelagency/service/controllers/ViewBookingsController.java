@@ -325,8 +325,21 @@ public class ViewBookingsController extends TravelAgencyController {
         loadTripsTableView();
     }
 
-    public void _tripTableView_onClick() {
-        //code
+    public void _tripTableView_onClick(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() < 2)
+            return;
+        TableView<TripConsumable> tableView = (TableView<TripConsumable>) mouseEvent.getSource();
+        TripConsumable tripConsumable = tableView.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(ViewTripController.VIEW_NAME);
+        try {
+            ViewTripController controller = new ViewTripController(application);
+            controller.setTripID(tripConsumable.getTripID());
+            loader.setControllerFactory(c -> controller);
+            Scene scene = application.loadScene(loader);
+            application.setScene(scene);
+        } catch (LoadException e) {
+            logger.error(e.getMessage());
+        }
     }
 
     /**

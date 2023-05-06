@@ -118,8 +118,7 @@ public class StartingPageController extends TravelAgencyController {
     }
 
     @FXML
-    private void _search_bookings_onClick(ActionEvent actionEvent) {
-        actionEvent.consume();
+    private void _search_bookings_onClick() {
         FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(ViewBookingsController.VIEW_NAME);
         try {
             ViewBookingsController controller = new ViewBookingsController(application);
