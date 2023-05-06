@@ -49,7 +49,7 @@ public class LandingPageController extends TravelAgencyController {
     /**
      * Authenticator to create database connection
      */
-    private static TravelAgencyAuthenticator authenticator = new TravelAgencyDatabaseAuthenticator();
+    private static final TravelAgencyAuthenticator authenticator = new TravelAgencyDatabaseAuthenticator();
 
     /**
      * Text to be displayed when login credentials are falsely

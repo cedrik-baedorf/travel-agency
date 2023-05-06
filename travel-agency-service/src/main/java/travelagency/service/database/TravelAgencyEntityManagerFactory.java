@@ -35,6 +35,6 @@ public interface TravelAgencyEntityManagerFactory {
      * specified in the <code>db.properties</code> file
      * @return <code>EntityManager</code> object to be used to find and persist entities
      */
-    public EntityManager createEntityManager();
+    EntityManager createEntityManager();
 
 }

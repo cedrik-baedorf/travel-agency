@@ -18,7 +18,7 @@ public interface TravelAgencyAuthenticator {
      * @param password password to the username provided
      * @return entity manager factory
      */
-    public TravelAgencyEntityManagerFactoryImplementation loginToDataBase(String username, String password);
+    TravelAgencyEntityManagerFactoryImplementation loginToDataBase(String username, String password);
 
 
 }

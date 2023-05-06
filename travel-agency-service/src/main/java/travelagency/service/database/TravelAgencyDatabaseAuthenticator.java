@@ -31,7 +31,7 @@ public class TravelAgencyDatabaseAuthenticator implements TravelAgencyAuthentica
      * and <code>password</code> parameters provided
      * @param username database username
      * @param password datebase password to the username provided
-     * @return
+     * @return <code>TravelAgencyEntityManagerFactory</code> object
      */
     @Override
     public TravelAgencyEntityManagerFactoryImplementation loginToDataBase(String username, String password) {
