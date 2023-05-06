@@ -1,5 +1,4 @@
 package travelagency.service.controllers;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.LoadException;
 import javafx.scene.Group;
@@ -9,7 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -179,32 +177,7 @@ public class ViewTripController extends TravelAgencyController {
     }
 
     @FXML
-    private void back_button_onClick() {
-        //code
-    }
-
-    @FXML
-    private void frame_3_onClick() {
-        //code
-    }
-
-    @FXML
     private void _home_onClick() {
-        //code
-    }
-
-    @FXML
-    private void _new_trip_onClick() {
-        //code
-    }
-
-    @FXML
-    private void _bookings_onClick() {
-        //code
-    }
-
-    @FXML
-    private void frame_3_ek3_onClick() {
         //code
     }
 
