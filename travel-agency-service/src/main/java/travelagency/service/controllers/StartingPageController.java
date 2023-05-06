@@ -18,10 +18,17 @@ import travelagency.service.TravelAgencyServiceApplication;
 
 public class StartingPageController extends TravelAgencyController {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(StartingPageController.class);
 
+    /**
+     * Name of the corresponding <code>.fxml</code> file
+     */
     public static final String VIEW_NAME = "starting_page.fxml";
 
+    //fxml elements
     @FXML public Text agencyName;
 
     @FXML public Text home;
@@ -85,11 +92,18 @@ public class StartingPageController extends TravelAgencyController {
         createBookingButton.setText(languageProperties.getProperty("createBooking.createButton"));
     }
 
+    /**
+     * add text formatters to allow digits only
+     */
     private void setListeners() {
         bookingIDTextField.setTextFormatter(createDigitFormatter());
         customerIDTextField.setTextFormatter(createDigitFormatter());
     }
 
+    /**
+     * Creates a formatter which only allows digits as inputs
+     * @return a digit only <code>TextFormatter</code> object
+     */
     private TextFormatter<String> createDigitFormatter() {
         return new TextFormatter<>(change -> {
             if (change.getControlNewText().matches("\\d*")) {
@@ -100,23 +114,34 @@ public class StartingPageController extends TravelAgencyController {
         });
     }
 
+    /**
+     * listener for home button in taskbar
+     */
     @FXML
     private void _home_onClick() {
         application.setRoot(VIEW_NAME, new StartingPageController(application));
     }
 
+    /**
+     * listener for search bookings button in taskbar
+     */
     @FXML
     private void _searchBookings_onClick() {
         application.setRoot(ViewBookingsController.VIEW_NAME, new ViewBookingsController(application));
     }
 
+    /**
+     * listener for logout button in taskbar
+     */
     @FXML
-    private void _logout_onClick(ActionEvent actionEvent) {
-        actionEvent.consume();
+    private void _logout_onClick() {
         application.setEntityManagerFactory(null);
         application.setRoot(LandingPageController.VIEW_NAME, new LandingPageController(application));
     }
 
+    /**
+     * listener for search bookings with selected filters from the corresponding text fields
+     */
     @FXML
     private void _search_bookings_onClick() {
         FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(ViewBookingsController.VIEW_NAME);
