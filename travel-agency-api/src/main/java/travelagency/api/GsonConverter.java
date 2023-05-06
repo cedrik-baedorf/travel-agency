@@ -15,7 +15,7 @@ public class GsonConverter {
     /**
      * Private constructor to prevent instantiation of the utility class.
      */
-    GsonConverter() {
+    public GsonConverter() {
     }
 
     /**
