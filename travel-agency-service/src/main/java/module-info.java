@@ -15,12 +15,12 @@ module travelagency.service {
     requires org.hibernate.orm.core;
     requires org.mariadb.jdbc;
 
-  opens travelagency.service to javafx.fxml;
+  opens travelagency.service to javafx.fxml, javafx.base;
     exports travelagency.service;
     exports travelagency.service.controllers;
   opens travelagency.service.controllers to javafx.fxml;
     exports travelagency.service.database;
-  opens travelagency.service.service.consumption to javafx.base, javafx.fxml;
+  opens travelagency.service.service.consumption to javafx.fxml;
     exports travelagency.service.service.consumption;
     exports travelagency.service.service.data;
     exports travelagency.service.entities;

@@ -130,7 +130,7 @@ public class Trip {
 
   @Override
   public boolean equals(Object obj) {
-    if(obj != null && obj.getClass().equals(this.getClass())) {
+    if(obj != null && obj.getClass().equals(getClass())) {
       Trip trip = (Trip) obj;
       return
           ((id == null && trip.getID() == null) || id.equals(trip.getID())) &&

@@ -145,7 +145,7 @@ public class FlightConnection {
 
   @Override
   public boolean equals(Object obj) {
-    if(obj != null && obj.getClass().equals(this.getClass())) {
+    if(obj != null && obj.getClass().equals(getClass())) {
       FlightConnection flightConnection = (FlightConnection) obj;
       return
           ((id == null && flightConnection.getId() == null)

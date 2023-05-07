@@ -133,7 +133,7 @@ public class HotelBooking {
 
   @Override
   public boolean equals(Object obj) {
-    if(obj != null && obj.getClass().equals(this.getClass())) {
+    if(obj != null && obj.getClass().equals(getClass())) {
       HotelBooking booking = (HotelBooking) obj;
       return
           ((id == null && booking.getID() == null) || id.equals(booking.getID())) &&

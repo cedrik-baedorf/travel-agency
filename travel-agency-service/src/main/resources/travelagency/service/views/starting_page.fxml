@@ -7,116 +7,125 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<ScrollPane hbarPolicy="NEVER" prefHeight="1024" prefWidth="1440" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelagency.service.controllers.StartingPageController">
-    <content>
-        <Pane prefHeight="1022" prefWidth="1440">
-            <children>
-                <Rectangle id="startingPage" fill="#FFFFFF" height="1024" width="1440">
-                </Rectangle>
+<ScrollPane hbarPolicy="NEVER" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="travelagency.service.controllers.StartingPageController">
+    <Pane>
+        <Rectangle id="startingPage" fill="#FFFFFF" height="1024" width="1440">
+        </Rectangle>
 
-                <Group id="taskbar">
-                    <Rectangle id="background" fill="#FFFFFF" height="102" width="1600">
-                    </Rectangle>
-                    <ImageView id="companyLogo" layoutX="160" layoutY="10" fitHeight="88" fitWidth="133" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../drawable/company_logo_2.png"/>
-                    </ImageView>
-                    <Text fx:id="agencyName" fill="#3B768A" layoutX="310" layoutY="60" wrappingWidth="500">
-                        <font>
-                            <Font name="Noto Serif Tamil" size="30" />
-                        </font>
-                    </Text>
-                    <Group id="taskbarTexts" layoutX="580" layoutY="60">
-                        <Text fx:id="home" fill="#000000" text="Home" textAlignment="CENTER" wrappingWidth="150" onMouseClicked="#_home_onClick">
-                            <font>
-                                <Font name="Poppins" size="20" />
-                            </font>
-                        </Text>
-                        <Text fx:id="searchBookings" fill="#000000" layoutX="160" onMouseClicked="#_searchBookings_onClick" text="Bookings" textAlignment="CENTER" wrappingWidth="150">
-                            <font>
-                                <Font name="Poppins" size="20" />
-                            </font>
-                        </Text>
-                        <Text fx:id="createBooking" fill="#AAAAAA" layoutX="320" text="New Trip" textAlignment="CENTER" wrappingWidth="150">
-                            <font>
-                                <Font name="Poppins" size="20" />
-                            </font>
-                        </Text>
-                        <Button fx:id="logoutButton" layoutX="500" layoutY="-25" textAlignment="CENTER" onAction="#_logout_onClick">
-                            <font>
-                                <Font name="Mako" size="20" />
-                            </font>
-                        </Button>
-                    </Group>
-                    <Rectangle id="dividerLine" fill="#3B768A" height="1" layoutY="102" width="1600"/>
-                </Group>
+        <Group id="taskbar">
+            <Rectangle id="background" fill="#FFFFFF" height="102" width="1600">
+            </Rectangle>
+            <ImageView id="companyLogo" layoutX="160" layoutY="10" fitHeight="88" fitWidth="133" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../../../drawable/company_logo_2.png"/>
+            </ImageView>
+            <Text fx:id="agencyName" fill="#3B768A" layoutX="310" layoutY="60" wrappingWidth="500">
+                <font>
+                    <Font name="Noto Serif Tamil" size="30"/>
+                </font>
+            </Text>
+            <Group id="taskbarTexts" layoutX="580" layoutY="60">
+                <Text fx:id="home" fill="#000000" text="Home" textAlignment="CENTER" wrappingWidth="150"
+                      onMouseClicked="#_home_onClick">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="searchBookings" fill="#000000" layoutX="160" onMouseClicked="#_searchBookings_onClick"
+                      text="Bookings" textAlignment="CENTER" wrappingWidth="150">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="createBooking" fill="#AAAAAA" layoutX="320" text="New Trip" textAlignment="CENTER"
+                      wrappingWidth="150">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Button fx:id="logoutButton" layoutX="500" layoutY="-25" textAlignment="CENTER"
+                        onAction="#_logout_onClick">
+                    <font>
+                        <Font name="Mako" size="20"/>
+                    </font>
+                </Button>
+            </Group>
+            <Rectangle id="dividerLine" fill="#3B768A" height="1" layoutY="102" width="1600"/>
+        </Group>
 
-                <Group id="complementaryImageGroup" layoutX="160" layoutY="113">
-                    <ImageView id="complementaryImage" fitHeight="355" fitWidth="1120" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../../../drawable/complementary_image_2.png"/>
-                    </ImageView>
-                </Group>
+        <Group id="complementaryImageGroup" layoutX="160" layoutY="113">
+            <ImageView id="complementaryImage" fitHeight="355" fitWidth="1120" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="@../../../drawable/complementary_image_2.png"/>
+            </ImageView>
+        </Group>
 
-                <Group id="searchBookingGroup" layoutX="255" layoutY="556">
-                    <Text fx:id="searchBookingTitle" fill="#3B768A" text="Search for an existing booking" wrappingWidth="800">
-                        <font>
-                            <Font name="Merriweather" size="40" />
-                        </font>
-                    </Text>
-                    <Group id="bookingIDGroup" layoutY="40">
-                        <Text fx:id="bookingIDText" fill="#000000" text="Booking No." textAlignment="CENTER" wrappingWidth="200">
-                            <font>
-                                <Font name="Poppins" size="20" />
-                            </font>
-                        </Text>
-                        <TextField fx:id="bookingIDTextField" layoutY="30" maxWidth="200">
-                            <font>
-                                <Font name="Poppins" size="16" />
-                            </font>
-                        </TextField>
-                    </Group>
-                    <Group id="customerNameGroup" layoutX="210" layoutY="40">
-                        <Text fx:id="customerNameText" fill="#000000" text="Customer Name" textAlignment="CENTER" wrappingWidth="200">
-                            <font>
-                                <Font name="Poppins" size="20" />
-                            </font>
-                        </Text>
-                        <TextField fx:id="customerNameTextField"  layoutY="30" maxWidth="200">
-                            <font>
-                                <Font name="Poppins" size="16" />
-                            </font>
-                        </TextField>
-                    </Group>
-                    <Group id="customerIDGroup" layoutX="420" layoutY="40">
-                        <Text fx:id="customerIDText" fill="#000000" text="Customer ID" textAlignment="CENTER" wrappingWidth="200">
-                            <font>
-                                <Font name="Poppins" size="20" />
-                            </font>
-                        </Text>
-                        <TextField fx:id="customerIDTextField" layoutY="30" maxWidth="200">
-                            <font>
-                                <Font name="Poppins" size="16" />
-                            </font>
-                        </TextField>
-                    </Group>
-                    <Button fx:id= "searchBookingButton" layoutX="746.0" layoutY="40" text="SEARCH" textAlignment="CENTER" onAction="#_search_bookings_onClick">
-                        <font>
-                            <Font name="Mako" size="24" />
-                        </font>
-                    </Button>
-                </Group>
-                <Group id="createBookingGroup" layoutX="255" layoutY="785">
-                    <Text fx:id="createBookingTitle" fill="#3B768A" text="Create a new booking" wrappingWidth="800">
-                        <font>
-                            <Font name="Merriweather" size="40" />
-                        </font>
-                    </Text>
-                    <Button fx:id= "createBookingButton" layoutX="746.0" layoutY="40" text="CREATE" textAlignment="CENTER" disable="true">
-                        <font>
-                            <Font name="Mako" size="24" />
-                        </font>
-                    </Button>
-                </Group>
-            </children>
-        </Pane>
-    </content>
+        <Group id="searchBookingGroup" layoutX="255" layoutY="556">
+            <Text fx:id="searchBookingTitle" fill="#3B768A" text="Search for an existing booking"
+                  wrappingWidth="800">
+                <font>
+                    <Font name="Merriweather" size="40"/>
+                </font>
+            </Text>
+            <Group id="bookingIDGroup" layoutY="40">
+                <Text fx:id="bookingIDText" fill="#000000" text="Booking No." textAlignment="CENTER"
+                      wrappingWidth="200">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <TextField fx:id="bookingIDTextField" layoutY="30" maxWidth="200">
+                    <font>
+                        <Font name="Poppins" size="16"/>
+                    </font>
+                </TextField>
+            </Group>
+            <Group id="customerNameGroup" layoutX="210" layoutY="40">
+                <Text fx:id="customerNameText" fill="#000000" text="Customer Name" textAlignment="CENTER"
+                      wrappingWidth="200">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <TextField fx:id="customerNameTextField" layoutY="30" maxWidth="200">
+                    <font>
+                        <Font name="Poppins" size="16"/>
+                    </font>
+                </TextField>
+            </Group>
+            <Group id="customerIDGroup" layoutX="420" layoutY="40">
+                <Text fx:id="customerIDText" fill="#000000" text="Customer ID" textAlignment="CENTER"
+                      wrappingWidth="200">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <TextField fx:id="customerIDTextField" layoutY="30" maxWidth="200">
+                    <font>
+                        <Font name="Poppins" size="16"/>
+                    </font>
+                </TextField>
+            </Group>
+            <Button fx:id="searchBookingButton" layoutX="746.0" layoutY="40" text="SEARCH" textAlignment="CENTER"
+                    onAction="#_search_bookings_onClick">
+                <font>
+                    <Font name="Mako" size="24"/>
+                </font>
+            </Button>
+        </Group>
+        <Group id="createBookingGroup" layoutX="255" layoutY="785">
+            <Text fx:id="createBookingTitle" fill="#3B768A" text="Create a new booking" wrappingWidth="800">
+                <font>
+                    <Font name="Merriweather" size="40"/>
+                </font>
+            </Text>
+            <Button fx:id="createBookingButton" layoutX="746.0" layoutY="40" text="CREATE" textAlignment="CENTER"
+                    disable="true">
+                <font>
+                    <Font name="Mako" size="24"/>
+                </font>
+            </Button>
+        </Group>
+    </Pane>
 </ScrollPane>

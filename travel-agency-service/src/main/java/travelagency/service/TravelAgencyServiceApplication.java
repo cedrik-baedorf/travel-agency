@@ -13,9 +13,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import travelagency.service.controllers.LandingPageController;
 import travelagency.service.controllers.TravelAgencyController;
-import travelagency.service.database.TravelAgencyEntityManagerFactory;
-
-import javax.persistence.EntityManager;
+import travelagency.service.database.TravelAgencyServiceFactory;
+import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
 
 public class TravelAgencyServiceApplication extends Application {
 
@@ -36,14 +35,14 @@ public class TravelAgencyServiceApplication extends Application {
     private Stage stage;
     public static final String INIT_VIEW = "landing_page.fxml";
 
-    private TravelAgencyEntityManagerFactory entityManagerFactory;
+    private TravelAgencyServiceFactory entityManagerFactory;
 
     static final Logger logger = LogManager.getLogger(TravelAgencyServiceApplication.class);
 
     @Override
     public void start(Stage stage) {
         //read parameters from main(String[] args) method
-        List<String> parameters = this.getParameters().getRaw();
+        List<String> parameters = getParameters().getRaw();
         switch(parameters.size()) {
             case 1: languageFile = parameters.get(0);
         }
@@ -91,12 +90,12 @@ public class TravelAgencyServiceApplication extends Application {
         return languageFile;
     }
 
-    public void setEntityManagerFactory(TravelAgencyEntityManagerFactory factory) {
+    public void setEntityManagerFactory(TravelAgencyServiceFactory factory) {
         this.entityManagerFactory = factory;
     }
 
-    public EntityManager createEntityManager() {
-        return entityManagerFactory.createEntityManager();
+    public TravelAgencyViewConsumptionService createViewConsumptionService() {
+        return entityManagerFactory.createViewConsumptionService();
     }
 
     public static void main(String[] args) {

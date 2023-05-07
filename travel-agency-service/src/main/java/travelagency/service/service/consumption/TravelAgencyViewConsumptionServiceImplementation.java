@@ -10,8 +10,15 @@ import java.util.List;
 
 public class TravelAgencyViewConsumptionServiceImplementation implements TravelAgencyViewConsumptionService {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(TravelAgencyViewConsumptionServiceImplementation.class);
 
+    /**
+     * <code>TravelAgencyViewDataService</code> used to retrieve entities from
+     * the database and convert them into their corresponding consumable objects.
+     */
     private final TravelAgencyViewDataService dataService;
 
     public TravelAgencyViewConsumptionServiceImplementation(TravelAgencyViewDataService dataService) {
@@ -99,12 +106,15 @@ public class TravelAgencyViewConsumptionServiceImplementation implements TravelA
             Flight flight = flightBooking.getFlight();
             FlightConnection connection = flight.getFlightConnection();
             flightBookingConsumables.add(new FlightBookingConsumable(
+                connection.getCarrierID() + connection.getConnectionID(),
                 connection.getDepartureAirport(),
                 flight.getDepartureTimestamp().toLocalDate().toString(),
                 flight.getDepartureTimestamp().toLocalTime().toString(),
+                flight.getDepartureTimestamp().getZone().toString(),
                 connection.getArrivalAirport(),
                 flight.getArrivalTimestamp().toLocalDate().toString(),
                 flight.getArrivalTimestamp().toLocalTime().toString(),
+                flight.getArrivalTimestamp().getZone().toString(),
                 flightBooking.getNumberOfPassengers(),
                 (int) flight.getFlightDuration().toMinutes(),
                 Math.floor(flightBooking.getTotalPrice() * 100) / 100

@@ -124,6 +124,11 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-site-plugin</artifactId>
+                <version>3.3</version>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-deploy-plugin</artifactId>
                 <version>2.7</version>
             </plugin>
@@ -136,7 +141,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>travelagency.service/travelagency.service.TravelAgencyServiceApplication</mainClass>
+                            <mainClass>travelagency.travelagency/travelagency.service.TravelAgencyServiceApplication</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>
@@ -149,4 +154,10 @@
             </plugin>
         </plugins>
     </build>
+    <distributionManagement>
+        <repository>
+            <id>travel-agency-service</id>
+            <url>https://github.com/cedrik-baedorf/travel-agency</url>
+        </repository>
+    </distributionManagement>
 </project>

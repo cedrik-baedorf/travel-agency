@@ -17,21 +17,39 @@ import javafx.scene.control.PasswordField;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import travelagency.service.TravelAgencyServiceApplication;
+import travelagency.service.database.TravelAgencyAuthenticator;
 import travelagency.service.database.TravelAgencyDatabaseAuthenticator;
-import travelagency.service.database.TravelAgencyEntityManagerFactory;
+import travelagency.service.database.TravelAgencyServiceFactoryImplementation;
 
+/**
+ * Controller to view 'landing_page.fxml'
+ * @author I551381
+ * @version 1.0
+ */
 public class LandingPageController extends TravelAgencyController {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(LandingPageController.class);
 
+    /**
+     * Name of the corresponding <code>.fxml</code> file
+     */
     public static final String VIEW_NAME = "landing_page.fxml";
 
+    //java fx elements
     @FXML public Text headerMessage;
     @FXML public Group usernameGroup;
     @FXML private TextField usernameTextField;
     @FXML private PasswordField passwordTextField;
     @FXML public Text infoMessage;
     @FXML public Button loginButton;
+
+    /**
+     * Authenticator to create database connection
+     */
+    private static final TravelAgencyAuthenticator authenticator = new TravelAgencyDatabaseAuthenticator();
 
     /**
      * Text to be displayed when login credentials are falsely
@@ -135,7 +153,7 @@ public class LandingPageController extends TravelAgencyController {
         infoMessage.setText(msg_login_attempt);
         new Thread(() -> {
             try {
-                TravelAgencyEntityManagerFactory factory = TravelAgencyDatabaseAuthenticator.loginToDataBase(
+                TravelAgencyServiceFactoryImplementation factory = authenticator.loginToDataBase(
                         usernameTextField.getText(), passwordTextField.getText()
                 );
                 FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(StartingPageController.VIEW_NAME);
