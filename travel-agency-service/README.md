@@ -1,6 +1,6 @@
 # Travel Agency Service
 
-Travel Agency Service is a JavaFX-based application that allows users to manage their travelagency data such as bookings, flights, and hotels for a specific customer. It offers a user-friendly interface and supports multiple languages.
+Travel Agency Service is a JavaFX-based application that allows users to manage travel data such as bookings, flights, and hotels for a specific customer. It offers a user-friendly interface and supports multiple languages.
 
 ## Table of Contents
 
@@ -12,7 +12,7 @@ Travel Agency Service is a JavaFX-based application that allows users to manage 
 
 - Java JDK 11 or higher
 - JavaFX SDK
-- Heidi Server
+- HeidiSQL Server
 
 ## Installation
 
