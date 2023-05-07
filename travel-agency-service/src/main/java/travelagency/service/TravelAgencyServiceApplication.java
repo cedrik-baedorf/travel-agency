@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import travelagency.service.controllers.LandingPageController;
 import travelagency.service.controllers.TravelAgencyController;
-import travelagency.service.database.TravelAgencyEntityManagerFactoryImplementation;
+import travelagency.service.database.TravelAgencyEntityManagerFactory;
 
 import javax.persistence.EntityManager;
 
@@ -34,8 +34,9 @@ public class TravelAgencyServiceApplication extends Application {
     private static final String MSG_FXML_LOADING_FAILED = "Unable to load fxml file with path %s";
 
     private Stage stage;
+    public static final String INIT_VIEW = "landing_page.fxml";
 
-    private TravelAgencyEntityManagerFactoryImplementation entityManagerFactory;
+    private TravelAgencyEntityManagerFactory entityManagerFactory;
 
     static final Logger logger = LogManager.getLogger(TravelAgencyServiceApplication.class);
 
@@ -46,11 +47,10 @@ public class TravelAgencyServiceApplication extends Application {
         switch(parameters.size()) {
             case 1: languageFile = parameters.get(0);
         }
-        String mainView = "landing_page.fxml";
 
         //set up stage
         this.stage = stage;
-        setRoot(mainView, new LandingPageController(this));
+        setRoot(INIT_VIEW, new LandingPageController(this));
         this.stage.setMaximized(true);
         this.stage.show();
     }
@@ -91,7 +91,7 @@ public class TravelAgencyServiceApplication extends Application {
         return languageFile;
     }
 
-    public void setEntityManagerFactory(TravelAgencyEntityManagerFactoryImplementation factory) {
+    public void setEntityManagerFactory(TravelAgencyEntityManagerFactory factory) {
         this.entityManagerFactory = factory;
     }
 

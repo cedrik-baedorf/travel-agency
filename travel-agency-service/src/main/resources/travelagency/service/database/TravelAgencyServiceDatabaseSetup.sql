@@ -52,21 +52,11 @@ CREATE TABLE IF NOT EXISTS `customer` (
   CONSTRAINT `fk_billing_address` FOREIGN KEY (`billing_address_id`) REFERENCES `address` (`address_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='registered customer';
 
--- export structure of table travel-agency-service_db.traveller
-CREATE TABLE IF NOT EXISTS `traveller` (
-    `passport_id` CHAR(9) NOT NULL COMMENT 'traveller''s unique identification number as from his current valid passport',
-    `place_of_birth` CHAR(50) COMMENT 'town name of birth',
-    `personal_data_id` INT(11) COMMENT 'unique identification number of the personal data',
-    PRIMARY KEY (`passport_id`),
-    CONSTRAINT `fk_traveller_data` FOREIGN KEY (`personal_data_id`) REFERENCES `personal_data` (`personal_data_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='registered traveller';
-
 -- export structure of table travel-agency-service_db.hotel
 CREATE TABLE IF NOT EXISTS `hotel` (
     `hotel_id` INT(11) NOT NULL COMMENT 'hotel''s unique identification number',
     `name` VARCHAR(60) COMMENT 'name of the hotel',
-    `price_per_person` DECIMAL (8,2) COMMENT 'price per person per night',
-    `currency_key` CHAR(3) COMMENT 'currency to the amount above',
+    `price_per_person` DECIMAL (8,2) COMMENT 'price per person per night with currency from the booking',
     `address_id` INT(11) COMMENT 'unique identification number of the hotel\'s address',
     PRIMARY KEY (`hotel_id`),
     CONSTRAINT `fk_hotel_address` FOREIGN KEY (`address_id`) REFERENCES `address` (`address_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -92,8 +82,7 @@ CREATE TABLE IF NOT EXISTS `flight` (
     `arrival_date` DATE COMMENT 'date of arrival',
     `arrival_time` TIME COMMENT 'time of arrival',
     `arrival_time_zone` CHAR(9) COMMENT 'time zone of arriving airport in format UTC+HH:MM',
-    `price_per_person` DECIMAL (8,2)COMMENT 'price per person per flight',
-    `currency_key` CHAR(3) COMMENT 'currency to the amount above',
+    `price_per_person` DECIMAL (8,2)COMMENT 'price per person per flight with the currency from the booking',
     PRIMARY KEY (`flight_id`),
     CONSTRAINT `fk_flight_connection` FOREIGN KEY (`flight_connection_id`) REFERENCES `flight_connection` (`flight_connection_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='registered flights';

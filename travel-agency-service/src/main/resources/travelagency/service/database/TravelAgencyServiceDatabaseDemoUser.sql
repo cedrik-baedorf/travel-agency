@@ -27,9 +27,6 @@ GRANT SELECT ON `personal_data` TO `DEMO_USER`;
 GRANT SELECT ON `customer` TO `DEMO_USER`;
 
 -- grant select to demo_user
-GRANT SELECT ON `traveller` TO `DEMO_USER`;
-
--- grant select to demo_user
 GRANT SELECT ON `hotel` TO `DEMO_USER`;
 
 -- grant select to demo_user
