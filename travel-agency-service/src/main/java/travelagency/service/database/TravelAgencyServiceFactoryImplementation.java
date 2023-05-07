@@ -9,6 +9,10 @@ import javax.persistence.Persistence;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.hibernate.service.spi.ServiceException;
+import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
+import travelagency.service.service.consumption.TravelAgencyViewConsumptionServiceImplementation;
+import travelagency.service.service.data.TravelAgencyViewDataService;
+import travelagency.service.service.data.TravelAgencyViewDataServiceImplementation;
 
 /**
  * This class implements the interface <code>TravelAgencyEntityManagerFactory</code>.
@@ -16,12 +20,12 @@ import org.hibernate.service.spi.ServiceException;
  * @author I551381
  * @version 1.0
  */
-public class TravelAgencyEntityManagerFactoryImplementation implements TravelAgencyEntityManagerFactory {
+public class TravelAgencyServiceFactoryImplementation implements TravelAgencyServiceFactory {
 
   /**
    * Logger for errors and additional information.
    */
-  static final Logger logger = LogManager.getLogger(TravelAgencyEntityManagerFactoryImplementation.class);
+  static final Logger logger = LogManager.getLogger(TravelAgencyServiceFactoryImplementation.class);
 
   /**
    * Error message for a missing property.
@@ -46,7 +50,7 @@ public class TravelAgencyEntityManagerFactoryImplementation implements TravelAge
    * driver and url properties defined in the <code>db.properties</code> file.
    * @param loginProperties <code>Map</code> object with persistence unit properties
    */
-  public TravelAgencyEntityManagerFactoryImplementation(Map<String, String> loginProperties) {
+  public TravelAgencyServiceFactoryImplementation(Map<String, String> loginProperties) {
     //check if user property is set
     if(! loginProperties.containsKey(USER_PROPERTY))
       missingProperty(USER_PROPERTY);
@@ -95,6 +99,24 @@ public class TravelAgencyEntityManagerFactoryImplementation implements TravelAge
    */
   public EntityManager createEntityManager() {
     return entityManagerFactory.createEntityManager();
+  }
+
+  /**
+   * This method implements the method <code>createViewDataService()</code> from the interface by using the
+   * <code>createEntityManager()</code> method of this instance.
+   * @return <code>TravelAgencyViewDataService</code> object to be used as a data service
+   */
+  public TravelAgencyViewDataService createViewDataService() {
+    return new TravelAgencyViewDataServiceImplementation(createEntityManager());
+  }
+
+  /**
+   * This method implements the method <code>createViewConsumptionService()</code> from the interface by using the
+   * <code>createViewDataService()</code> method of this instance.
+   * @return <code>TravelAgencyViewConsumptionService</code> object to be used as a consumption service
+   */
+  public TravelAgencyViewConsumptionService createViewConsumptionService() {
+    return new TravelAgencyViewConsumptionServiceImplementation(createViewDataService());
   }
 
   private Properties getDBAccessProperties(String dbPropertiesPath) {

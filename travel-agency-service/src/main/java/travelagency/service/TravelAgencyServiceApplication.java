@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import travelagency.service.controllers.LandingPageController;
 import travelagency.service.controllers.TravelAgencyController;
-import travelagency.service.database.TravelAgencyEntityManagerFactory;
+import travelagency.service.database.TravelAgencyServiceFactory;
 
 import javax.persistence.EntityManager;
 
@@ -36,7 +36,7 @@ public class TravelAgencyServiceApplication extends Application {
     private Stage stage;
     public static final String INIT_VIEW = "landing_page.fxml";
 
-    private TravelAgencyEntityManagerFactory entityManagerFactory;
+    private TravelAgencyServiceFactory entityManagerFactory;
 
     static final Logger logger = LogManager.getLogger(TravelAgencyServiceApplication.class);
 
@@ -91,7 +91,7 @@ public class TravelAgencyServiceApplication extends Application {
         return languageFile;
     }
 
-    public void setEntityManagerFactory(TravelAgencyEntityManagerFactory factory) {
+    public void setEntityManagerFactory(TravelAgencyServiceFactory factory) {
         this.entityManagerFactory = factory;
     }
 

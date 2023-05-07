@@ -34,12 +34,12 @@ public class TravelAgencyDatabaseAuthenticator implements TravelAgencyAuthentica
      * @return <code>TravelAgencyEntityManagerFactory</code> object
      */
     @Override
-    public TravelAgencyEntityManagerFactoryImplementation loginToDataBase(String username, String password) {
+    public TravelAgencyServiceFactoryImplementation loginToDataBase(String username, String password) {
         Map<String, String> loginProperties = new HashMap<>();
         loginProperties.put("javax.persistence.jdbc.user", username);
         loginProperties.put("javax.persistence.jdbc.password", password);
         try {
-            return new TravelAgencyEntityManagerFactoryImplementation(loginProperties);
+            return new TravelAgencyServiceFactoryImplementation(loginProperties);
         } catch(RuntimeException e) {
             final String MSG = String.format(MSG_UNABLE_TO_LOGIN, username, password);
             logger.warn(MSG);

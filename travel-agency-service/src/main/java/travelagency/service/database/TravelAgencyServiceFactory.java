@@ -1,5 +1,8 @@
 package travelagency.service.database;
 
+import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
+import travelagency.service.service.data.TravelAgencyViewDataService;
+
 import javax.persistence.EntityManager;
 
 /**
@@ -8,7 +11,7 @@ import javax.persistence.EntityManager;
  * @author I551381
  * @version 1.0
  */
-public interface TravelAgencyEntityManagerFactory {
+public interface TravelAgencyServiceFactory {
 
     /**
      * Name of the <code>driver</code> property in the <code>persistence.xml</code> file
@@ -36,5 +39,19 @@ public interface TravelAgencyEntityManagerFactory {
      * @return <code>EntityManager</code> object to be used to find and persist entities
      */
     EntityManager createEntityManager();
+
+    /**
+     * This public method shall return an <code>TravelAgencyViewDataService</code> connected to the persistence unit
+     * specified in the <code>db.properties</code> file
+     * @return <code>TravelAgencyViewDataService</code> object to be used as a data service
+     */
+    TravelAgencyViewDataService createViewDataService();
+
+    /**
+     * This public method shall return an <code>TravelAgencyViewConsumptionService</code> connected to the persistence unit
+     * specified in the <code>db.properties</code> file
+     * @return <code>TravelAgencyViewConsumptionService</code> object to be used as a consumption service
+     */
+    TravelAgencyViewConsumptionService createViewConsumptionService();
 
 }

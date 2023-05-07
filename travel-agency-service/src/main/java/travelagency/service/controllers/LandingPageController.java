@@ -19,7 +19,7 @@ import org.apache.logging.log4j.Logger;
 import travelagency.service.TravelAgencyServiceApplication;
 import travelagency.service.database.TravelAgencyAuthenticator;
 import travelagency.service.database.TravelAgencyDatabaseAuthenticator;
-import travelagency.service.database.TravelAgencyEntityManagerFactoryImplementation;
+import travelagency.service.database.TravelAgencyServiceFactoryImplementation;
 
 /**
  * Controller to view 'landing_page.fxml'
@@ -153,7 +153,7 @@ public class LandingPageController extends TravelAgencyController {
         infoMessage.setText(msg_login_attempt);
         new Thread(() -> {
             try {
-                TravelAgencyEntityManagerFactoryImplementation factory = authenticator.loginToDataBase(
+                TravelAgencyServiceFactoryImplementation factory = authenticator.loginToDataBase(
                         usernameTextField.getText(), passwordTextField.getText()
                 );
                 FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(StartingPageController.VIEW_NAME);
