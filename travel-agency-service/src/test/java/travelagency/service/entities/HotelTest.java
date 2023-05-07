@@ -20,7 +20,6 @@ public class HotelTest {
     hotel = new Hotel(
         "Luxor Deluxe",
         20000.01,
-        "GIB",
         new Address(
             "Meerenge von Gibraltar",
             "1",
@@ -32,7 +31,6 @@ public class HotelTest {
     copyHotel = new Hotel(
         "Luxor Deluxe",
         20000.01,
-        "GIB",
         new Address(
             "Meerenge von Gibraltar",
             "1",
@@ -44,7 +42,6 @@ public class HotelTest {
     differentHotel = new Hotel(
         "Billig Hotel",
         1.99,
-        "EUR",
         new Address(
             "Reeperbahn",
             "69",
@@ -92,14 +89,13 @@ public class HotelTest {
     Hotel excelsior = new Hotel(
         "Excelsior Hotel Ernst",
         500.00,
-        "EUR",
         new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
     );
 
     assertEquals("""
         Excelsior Hotel Ernst
         Trankgasse 1-5, 50667 Köln, Deutschland
-        Price: 500.0 EUR""",
+        Price: 500.0""",
         excelsior.toString()
     );
   }

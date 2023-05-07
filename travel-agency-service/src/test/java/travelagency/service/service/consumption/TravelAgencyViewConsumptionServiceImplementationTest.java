@@ -43,7 +43,7 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
         private final double PRICE;
 
         public TestBooking(
-                Integer id, Integer customerID, String lastName, LocalDate date, Double price, String currency
+                Integer id, Integer customerID, String lastName, LocalDate date, Double price
         ) {
             this.ID = id;
             this.setCustomer(new TestCustomer(customerID, lastName));
@@ -123,7 +123,7 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
             this.PRICE = price;
             this.setNumberOfGuests(guests);
             this.setNumberOfNights(nights);
-            this.setHotel(new Hotel(name, 0, "EUR", address));
+            this.setHotel(new Hotel(name, 0, address));
         }
 
         @Override
@@ -206,9 +206,9 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
 
     private List<Booking> createBookingList() {
         return List.of(
-            new TestBooking(1, 1, "Maier", LocalDate.now(), 50.0, "EUR"),
-            new TestBooking(2, 1, "Maier", LocalDate.now(), 100.0, "EUR"),
-            new TestBooking(3, 2, "Weiß", LocalDate.now(), 20.9, "EUR")
+            new TestBooking(1, 1, "Maier", LocalDate.now(), 50.0),
+            new TestBooking(2, 1, "Maier", LocalDate.now(), 100.0),
+            new TestBooking(3, 2, "Weiß", LocalDate.now(), 20.9)
         );
     }
 

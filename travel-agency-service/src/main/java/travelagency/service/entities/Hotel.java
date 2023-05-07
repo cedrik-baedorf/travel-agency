@@ -41,12 +41,6 @@ public class Hotel {
   private Double pricePerPerson;
 
   /**
-   * three character currency key to the <code>pricePerPerson</code>
-   */
-  @Column(name = "CURRENCY_KEY")
-  private String currencyKey;
-
-  /**
    * hotel address
    */
   @ManyToOne
@@ -64,13 +58,11 @@ public class Hotel {
    * Constructor creates a <code>Hotel</code> object with specified attributes
    * @param name hotel name
    * @param pricePerPerson price per night per person
-   * @param currencyKey three character currency key to the <code>pricePerPerson</code>
    * @param address hotel address
    */
-  public Hotel(String name, double pricePerPerson, String currencyKey, Address address) {
+  public Hotel(String name, double pricePerPerson, Address address) {
     this.name = name;
     this.pricePerPerson = pricePerPerson;
-    this.currencyKey = currencyKey;
     this.address = address;
   }
 
@@ -115,22 +107,6 @@ public class Hotel {
   }
 
   /**
-   * Getter-method for the <code>currencyKey</code> attribute.
-   * @return three character currency key to the <code>pricePerPerson</code>
-   */
-  public String getCurrencyKey() {
-    return currencyKey;
-  }
-
-  /**
-   * Setter-method for the <code>currencyKey</code> attribute.
-   * @param currencyKey new three character currency key to the <code>pricePerPerson</code>
-   */
-  public void setCurrencyKey(String currencyKey) {
-    this.currencyKey = currencyKey;
-  }
-
-  /**
    * Getter-method for the <code>address</code> attribute.
    * @return hotel address
    */
@@ -155,8 +131,6 @@ public class Hotel {
           ((name == null && hotel.getName() == null) || name.equals(hotel.getName())) &&
           ((pricePerPerson
               == null && hotel.getPricePerPerson() == null) || pricePerPerson.equals(hotel.getPricePerPerson())) &&
-          ((currencyKey
-              == null && hotel.getCurrencyKey() == null) || currencyKey.equals(hotel.getCurrencyKey())) &&
           ((address == null && hotel.getAddress() == null) || address.equals(hotel.getAddress()));
     }
     return false;
@@ -165,10 +139,9 @@ public class Hotel {
   @Override
   public String toString() {
     return
-        (name != null                             ? name + '\n'                                    : "" )
-            + (address != null                    ? address.toString() + '\n'                                 : "" )
-            + (pricePerPerson != null && currencyKey
-            != null  ? "Price: " + pricePerPerson + " " + currencyKey : "" );
+        (name != null                             ? name + '\n' : "" )
+            + (address != null                    ? address.toString() + '\n' : "" )
+            + (pricePerPerson != null ? "Price: " + pricePerPerson : "" );
   }
 
   @Override
@@ -177,7 +150,6 @@ public class Hotel {
         (String.valueOf(id != null  ? id.hashCode()       : null)
             + (name != null         ? name.hashCode()     : null)
             + (pricePerPerson != null        ? pricePerPerson.hashCode()    : null)
-            + (currencyKey != null     ? currencyKey.hashCode() : null)
             + (address != null      ? address.hashCode()  : null)).hashCode();
   }
 

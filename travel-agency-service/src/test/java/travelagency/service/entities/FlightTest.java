@@ -26,8 +26,7 @@ public class FlightTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
     );
     copyFlight = new Flight(
         new FlightConnection("DL", "0015", "FRA", "ATL"),
@@ -37,8 +36,7 @@ public class FlightTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
     );
     differentFlight = new Flight(
         new FlightConnection("DL", "0016", "ATL", "FRA"),
@@ -48,8 +46,7 @@ public class FlightTest {
         LocalDate.of(2023, 7, 31),
         LocalTime.of(7, 30, 38),
         "UTC+02:00",
-        599.99,
-        "EUR"
+        599.99
     );
   }
 
@@ -169,15 +166,14 @@ public class FlightTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
     );
 
     String expectedResult = """
         DL0015 from FRA to ATL
         Departure:\s""" + testedFlight.getDepartureTimestamp().toString() + '\n' + """
         Arrival  :\s""" + testedFlight.getArrivalTimestamp().toString() + '\n' + """
-        Price    : 299.99 EUR""";
+        Price    : 299.99""";
 
     assertEquals(expectedResult, testedFlight.toString());
   }
