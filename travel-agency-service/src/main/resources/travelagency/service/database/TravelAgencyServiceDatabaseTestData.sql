@@ -49,7 +49,7 @@ INSERT INTO `customer` (`customer_id`, `IBAN`, `personal_data_id`, `billing_addr
 
 -- export data of table travel-agency-service_db.hotel: 3 rows
 DELETE FROM `hotel`;
-INSERT INTO `hotel` (`hotel_id`, `name`, `price_per_person`, `currency_key`, `address_id`) VALUES
+INSERT INTO `hotel` (`hotel_id`, `name`, `price_per_person`, `address_id`) VALUES
     (1, 'Excelsior Hotel Ernst', 500.00, 5),
     (2, 'SAP Guesthouse', 10.00, 6),
     (3, 'Disney\'s All-Star Movies Resort', 199.99, 7),
@@ -71,7 +71,7 @@ INSERT INTO `flight_connection` (`flight_connection_id`, `carrier_id`, `connecti
 
 -- export data of table travel-agency-service_db.flight: 62 rows
 DELETE FROM `flight`;
-INSERT INTO `flight` (`flight_id`, `flight_connection_id`, `departure_date`, `departure_time`, `departure_time_zone`, `arrival_date`, `arrival_time`, `arrival_time_zone`, `price_per_person`, `currency_key`) VALUES
+INSERT INTO `flight` (`flight_id`, `flight_connection_id`, `departure_date`, `departure_time`, `departure_time_zone`, `arrival_date`, `arrival_time`, `arrival_time_zone`, `price_per_person`) VALUES
     (1 , 1, '2023-05-01', '12:45:00', 'UTC+02:00', '2023-05-01', '15:15:00', 'UTC-07:00',  749.99),
     (2 , 1, '2023-05-08', '12:45:00', 'UTC+02:00', '2023-05-08', '15:15:00', 'UTC-07:00',  749.99),
     (3 , 1, '2023-05-15', '12:45:00', 'UTC+02:00', '2023-05-15', '15:15:00', 'UTC-07:00',  749.99),
