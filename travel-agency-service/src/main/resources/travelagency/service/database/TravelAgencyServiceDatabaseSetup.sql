@@ -52,15 +52,6 @@ CREATE TABLE IF NOT EXISTS `customer` (
   CONSTRAINT `fk_billing_address` FOREIGN KEY (`billing_address_id`) REFERENCES `address` (`address_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='registered customer';
 
--- export structure of table travel-agency-service_db.traveller
-CREATE TABLE IF NOT EXISTS `traveller` (
-    `passport_id` CHAR(9) NOT NULL COMMENT 'traveller''s unique identification number as from his current valid passport',
-    `place_of_birth` CHAR(50) COMMENT 'town name of birth',
-    `personal_data_id` INT(11) COMMENT 'unique identification number of the personal data',
-    PRIMARY KEY (`passport_id`),
-    CONSTRAINT `fk_traveller_data` FOREIGN KEY (`personal_data_id`) REFERENCES `personal_data` (`personal_data_id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci COMMENT='registered traveller';
-
 -- export structure of table travel-agency-service_db.hotel
 CREATE TABLE IF NOT EXISTS `hotel` (
     `hotel_id` INT(11) NOT NULL COMMENT 'hotel''s unique identification number',
