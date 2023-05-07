@@ -37,7 +37,7 @@ public class Authenticator {
      * @param uri The URI containing the server address, request, and tokens (username and password).
      * @return The extracted username as a String or null if not found.
      */
-    public static String extractUsername(String uri) {
+    public String extractUsername(String uri) {
         Pattern pattern = Pattern.compile("username=([^&]+)");
         Matcher matcher = pattern.matcher(uri);
         if (matcher.find()) {
@@ -52,13 +52,24 @@ public class Authenticator {
      * @param uri The URI containing the server address, request, and tokens (username and password).
      * @return The extracted password as a String or null if not found.
      */
-    public static String extractPassword(String uri) {
+    public String extractPassword(String uri) {
         Pattern pattern = Pattern.compile("password=([^&]+)");
         Matcher matcher = pattern.matcher(uri);
         if (matcher.find()) {
             return matcher.group(1);
         }
         return null;
+    }
+
+    /**
+     * Checks if the provided credentials are listed in the credentials map.
+     *
+     * @param username    The username to check.
+     * @param password    The password to check.
+     * @return True if the credentials are listed in the credentials map; false otherwise.
+     */
+    public boolean checkCredentials( String username, String password) {
+        return Authenticator.checkCredentials(this.getCredentialsMap(), username, password);
     }
 
     /**

@@ -29,13 +29,13 @@ public class AuthenticatorTest {
     @Test
     public void testExtractUsername() {
         String uri = "http://localhost:8500/getHotels?username=demo&password=123";
-        assertEquals("demo", Authenticator.extractUsername(uri));
+        assertEquals("demo", new Authenticator().extractUsername(uri));
     }
 
     @Test
     public void testExtractPassword() {
         String uri = "http://localhost:8500/getHotels?username=demo&password=123";
-        assertEquals("123", Authenticator.extractPassword(uri));
+        assertEquals("123", new Authenticator().extractPassword(uri));
     }
 
     @Test
