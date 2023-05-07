@@ -26,7 +26,7 @@ These instructions will get you a copy of the project up and running on your loc
 1. Clone the repository:
 
 ```
-git clone https://github.com/cedrik-baedorf/travelagency-agency.git
+git clone https://github.com/cedrik-baedorf/travel-agency.git
 ```
 
 2. Follow the installation instructions for the `Travel-Agency-Service` submodule:
