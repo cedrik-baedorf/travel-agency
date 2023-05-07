@@ -1,5 +1,8 @@
 package travelagency.api;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
@@ -13,6 +16,8 @@ import java.util.regex.Pattern;
  * @version 1.0
  */
 public class Authenticator {
+
+    private static final Logger logger = LogManager.getLogger(LocalServer.class);
 
     /**
      * Returns a map of valid user credentials.
@@ -65,6 +70,11 @@ public class Authenticator {
      * @return True if the credentials are listed in the credentials map; false otherwise.
      */
     public static boolean checkCredentials(Map<String, String> credentials, String username, String password) {
+        if(
+        !(credentials.containsKey(username) && credentials.get(username).equals(password))
+        ) {
+            logger.info("User " + username + " entered wrong credentials");
+        }
         return credentials.containsKey(username) && credentials.get(username).equals(password);
     }
 }
