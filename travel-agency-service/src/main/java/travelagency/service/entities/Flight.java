@@ -107,7 +107,6 @@ public class Flight {
    * @param timeOfArrival local time of arrival
    * @param timeZoneOfArrival time zone of the airport of arrival
    * @param pricePerPerson price per person
-   * @param currencyKey three character currency key to the <code>pricePerPerson</code>
    */
   public Flight(FlightConnection flightConnection, LocalDate dateOfDeparture,
       LocalTime timeOfDeparture, String timeZoneOfDeparture, LocalDate dateOfArrival,
