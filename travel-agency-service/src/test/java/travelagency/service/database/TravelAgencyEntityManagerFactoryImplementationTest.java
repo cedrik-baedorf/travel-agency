@@ -7,14 +7,14 @@ import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class TravelAgencyEntityManagerFactoryTest {
+public class TravelAgencyEntityManagerFactoryImplementationTest {
 
   @Test
   public void testConstructor() {
     Map<String, String> loginCredentials = new HashMap<>();
     loginCredentials.put("javax.persistence.jdbc.user", "DEMO_USER");
     loginCredentials.put("javax.persistence.jdbc.password", "PASSWORD");
-    assertDoesNotThrow(() -> new TravelAgencyEntityManagerFactory(loginCredentials));
+    assertDoesNotThrow(() -> new TravelAgencyEntityManagerFactoryImplementation(loginCredentials));
   }
 
   @Test
@@ -22,9 +22,9 @@ public class TravelAgencyEntityManagerFactoryTest {
     Map<String, String> loginCredentials = new HashMap<>();
     loginCredentials.put("javax.persistence.jdbc.user", "DEMO_USER");
     loginCredentials.put("javax.persistence.jdbc.password", "PASSWORD");
-    assertDoesNotThrow(() -> new TravelAgencyEntityManagerFactory(loginCredentials));
-    assertDoesNotThrow(() -> new TravelAgencyEntityManagerFactory(loginCredentials).createEntityManager());
-    assertNotEquals(null, new TravelAgencyEntityManagerFactory(loginCredentials).createEntityManager());
+    assertDoesNotThrow(() -> new TravelAgencyEntityManagerFactoryImplementation(loginCredentials));
+    assertDoesNotThrow(() -> new TravelAgencyEntityManagerFactoryImplementation(loginCredentials).createEntityManager());
+    assertNotEquals(null, new TravelAgencyEntityManagerFactoryImplementation(loginCredentials).createEntityManager());
   }
 
 }

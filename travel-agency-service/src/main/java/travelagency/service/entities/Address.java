@@ -167,7 +167,7 @@ public class Address {
 
   @Override
   public boolean equals(Object obj) {
-    if(obj != null && obj.getClass().equals(this.getClass())) {
+    if(obj != null && obj.getClass().equals(getClass())) {
       Address address = (Address) obj;
       return
         ((id == null && address.getId() == null) || id.equals(address.getId())) &&

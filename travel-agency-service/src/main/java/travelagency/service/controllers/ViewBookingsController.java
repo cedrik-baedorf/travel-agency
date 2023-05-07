@@ -32,13 +32,25 @@ import travelagency.service.service.consumption.TravelAgencyViewConsumptionServi
 import travelagency.service.service.consumption.TripConsumable;
 import travelagency.service.service.data.TravelAgencyViewDataServiceImplementation;
 
+/**
+ * Controller to view 'view_bookings.fxml'
+ * @author I551381
+ * @version 1.0
+ */
 public class ViewBookingsController extends TravelAgencyController {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(ViewBookingsController.class);
 
+    /**
+     * Name of the corresponding <code>.fxml</code> file
+     */
     public static final String VIEW_NAME = "view_bookings.fxml";
 
-    //title bar
+    //fxml elements
+    //task bar
     @FXML public Text agencyName;
 
     @FXML public Text home;
@@ -93,16 +105,16 @@ public class ViewBookingsController extends TravelAgencyController {
     }
 
     /**
-     * This method is called when the landing_page.fxml file is loaded
+     * This method is called when the view_bookings.fxml file is loaded
      */
     public void initialize() {
         setTexts(application.getLanguageFile());
-        this.service = new TravelAgencyViewConsumptionServiceImplementation(
+        service = new TravelAgencyViewConsumptionServiceImplementation(
             new TravelAgencyViewDataServiceImplementation(
                 application.createEntityManager()
             )
         );
-        this.loadBookingsTableView();
+        loadBookingsTableView();
     }
 
     /**
@@ -233,6 +245,11 @@ public class ViewBookingsController extends TravelAgencyController {
         return column;
     }
 
+    /**
+     * This private method uses the <code>service</code> attribute to load
+     * a <code>List</code> object of <code>BookingConsumable</code> objects
+     * @return list of bookings from the service
+     */
     private List<BookingConsumable> loadBookingList() {
         List<BookingConsumable> bookingsList;
         Integer bookingID = bookingIDTextField.getText().isEmpty() ?
@@ -263,6 +280,11 @@ public class ViewBookingsController extends TravelAgencyController {
         return bookingsList;
     }
 
+    /**
+     * This private method uses the <code>service</code> attribute to load
+     * a <code>List</code> object of <code>TripConsumable</code> objects.
+     * @return list of trips from the service
+     */
     private List<TripConsumable> loadTripList() {
         Integer bookingID = bookingIDTextField.getText().isEmpty() ?
             null : Integer.parseInt(bookingIDTextField.getText());
@@ -272,20 +294,34 @@ public class ViewBookingsController extends TravelAgencyController {
             return new LinkedList<>();
     }
 
+    /**
+     * Method sets filter for booking id.
+     * @param bookingID booking id to be filtered by
+     */
     public void setBookingID(int bookingID) {
         bookingIDTextField.setText(String.valueOf(bookingID));
     }
 
+    /**
+     * Method sets filter for customer id.
+     * @param customerID booking id to be filtered by
+     */
     public void setCustomerID(int customerID) {
         customerIDTextField.setText(String.valueOf(customerID));
     }
 
+    /**
+     * Method sets filter for customer name
+     * @param customerName customer name to be filtered by
+     */
     public void setCustomerName(String customerName) {
         customerNameTextField.setText(customerName);
     }
 
-    public void _home_onClick(MouseEvent mouseEvent) {
-        mouseEvent.consume();
+    /**
+     * listener for home button in taskbar
+     */
+    public void _home_onClick() {
         FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(StartingPageController.VIEW_NAME);
         try {
             loader.setControllerFactory(c -> new StartingPageController(application));
@@ -296,6 +332,9 @@ public class ViewBookingsController extends TravelAgencyController {
         }
     }
 
+    /**
+     * listener for search bookings button in taskbar
+     */
     public void _searchBookings_onClick() {
         bookingIDTextField.clear();
         customerIDTextField.clear();
@@ -303,6 +342,9 @@ public class ViewBookingsController extends TravelAgencyController {
         this.loadBookingsTableView();
     }
 
+    /**
+     * listener for logout button in taskbar
+     */
     public void _logout_onClick(ActionEvent actionEvent) {
         actionEvent.consume();
         service = null;
@@ -310,6 +352,13 @@ public class ViewBookingsController extends TravelAgencyController {
         application.setRoot(LandingPageController.VIEW_NAME, new LandingPageController(application));
     }
 
+    /**
+     * listener for a double click on a row of the booking table view loading
+     * and displaying all trips contained in the booking selected in a new
+     * <code>TableView</code> element
+     * @param mouseEvent <code>MouseEvenet</code> object created by the runtime
+     *                   which is checked for a double click
+     */
     public void _bookingsTableView_onClick(MouseEvent mouseEvent) {
         if(mouseEvent.getClickCount() < 2)
             return;
@@ -325,8 +374,28 @@ public class ViewBookingsController extends TravelAgencyController {
         loadTripsTableView();
     }
 
-    public void _tripTableView_onClick() {
-        //code
+    /**
+     * listener for a double click on a row of the trip table view loading
+     * and displaying the details of all hotel and flight booking
+     * contained in the trip selected in a new view.
+     * @param mouseEvent <code>MouseEvenet</code> object created by the runtime
+     *                   which is checked for a double click
+     */
+    public void _tripTableView_onClick(MouseEvent mouseEvent) {
+        if(mouseEvent.getClickCount() < 2)
+            return;
+        TableView<TripConsumable> tableView = (TableView<TripConsumable>) mouseEvent.getSource();
+        TripConsumable tripConsumable = tableView.getSelectionModel().getSelectedItem();
+        FXMLLoader loader = TravelAgencyServiceApplication.getFXMLLoader(ViewTripController.VIEW_NAME);
+        try {
+            ViewTripController controller = new ViewTripController(application);
+            controller.setTripID(tripConsumable.getTripID());
+            loader.setControllerFactory(c -> controller);
+            Scene scene = application.loadScene(loader);
+            application.setScene(scene);
+        } catch (LoadException e) {
+            logger.error(e.getMessage());
+        }
     }
 
     /**

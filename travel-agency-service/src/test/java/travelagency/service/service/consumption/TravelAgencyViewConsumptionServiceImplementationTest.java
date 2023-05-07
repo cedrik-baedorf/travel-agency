@@ -142,8 +142,9 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
         private final double PRICE;
 
         public TestFlightBooking(
-                String from, LocalDate depDate, LocalTime depTime,
-                String to, LocalDate arrDate, LocalTime arrTime,
+                String carr, String conn,
+                String from, LocalDate depDate, LocalTime depTime, ZoneId depZone,
+                String to, LocalDate arrDate, LocalTime arrTime, ZoneId arrZone,
                 Integer passengers, Integer duration, Double price
         ) {
             this.PRICE = price;
@@ -157,9 +158,11 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
             FlightConnection connection = new FlightConnection();
             connection.setDepartureAirport(from);
             connection.setArrivalAirport(to);
+            connection.setCarrierID(carr);
+            connection.setConnectionID(conn);
             flight.setFlightConnection(connection);
-            flight.setDepartureTimestamp(ZonedDateTime.of(depDate, depTime, ZoneId.of("UTC+0000")));
-            flight.setArrivalTimestamp(ZonedDateTime.of(arrDate, arrTime, ZoneId.of("UTC+0000")));
+            flight.setDepartureTimestamp(ZonedDateTime.of(depDate, depTime, depZone));
+            flight.setArrivalTimestamp(ZonedDateTime.of(arrDate, arrTime, arrZone));
             this.setFlight(flight);
         }
 
@@ -277,21 +280,27 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
     private Set<FlightBooking> createFlightBookingSet() {
         return Set.of(
             new TestFlightBooking(
+                "LH", "1304",
                 "FRA",
                 LocalDate.of(2023, 5, 14),
                 LocalTime.of(11, 0, 0),
+                ZoneId.of("UTC+02:00"),
                 "ATL",
                 LocalDate.of(2023, 5, 14),
                 LocalTime.of(16, 0, 0),
+                ZoneId.of("UTC-04:00"),
                 1, 600, 999.99
             ),
             new TestFlightBooking(
+                "DL", "0015",
                 "ATL",
                 LocalDate.of(2023, 7, 29),
                 LocalTime.of(11, 0, 0),
+                ZoneId.of("UTC-04:00"),
                 "FRA",
                 LocalDate.of(2023, 7, 29),
                 LocalTime.of(21, 0, 0),
+                ZoneId.of("UTC+02:00"),
                 5, 600, 1299.99
             )
         );
@@ -300,13 +309,15 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
     private List<FlightBookingConsumable> createFlightBookingConsumableList() {
         return List.of(
             new FlightBookingConsumable(
-                "FRA", "2023-05-14", "11:00",
-                "ATL", "2023-05-14", "16:00",
+                "LH1304",
+                "FRA", "2023-05-14", "11:00", "UTC+02:00",
+                "ATL", "2023-05-14", "16:00", "UTC-04:00",
                 1, 600, 999.99
             ),
             new FlightBookingConsumable(
-                "ATL", "2023-07-29", "11:00",
-                "FRA", "2023-07-29", "21:00",
+                "DL0015",
+                "ATL", "2023-07-29", "11:00", "UTC-04:00",
+                "FRA", "2023-07-29", "21:00", "UTC+02:00",
                 5, 600, 1299.99
             )
         );

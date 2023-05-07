@@ -43,7 +43,7 @@ public class TravelAgencyServiceApplication extends Application {
     @Override
     public void start(Stage stage) {
         //read parameters from main(String[] args) method
-        List<String> parameters = this.getParameters().getRaw();
+        List<String> parameters = getParameters().getRaw();
         switch(parameters.size()) {
             case 1: languageFile = parameters.get(0);
         }

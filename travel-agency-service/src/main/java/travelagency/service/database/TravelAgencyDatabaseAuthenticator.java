@@ -6,27 +6,40 @@ import org.apache.logging.log4j.Logger;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TravelAgencyDatabaseAuthenticator {
+/**
+ * This class implements the interface <code>TravelAgencyAuthenticator</code>.
+ * This class authenticates users by using the users from the database for user management.
+ * @author I551381
+ * @version 1.0
+ */
+public class TravelAgencyDatabaseAuthenticator implements TravelAgencyAuthenticator {
 
+    /**
+     * Logger for errors and additional information
+     */
     static final Logger logger = LogManager.getLogger(TravelAgencyDatabaseAuthenticator.class);
 
+    /**
+     * Error message for an unsuccessful login attempt
+     */
     private static final String MSG_UNABLE_TO_LOGIN =
         "Unable to log to persistence unit using username '%s' and password = '%s'";
 
     /**
-     * Public static method returns a <code>TravelAgencyEntityManagerFactory</code> object
-     * connected to the database with the credentials provided.
-     * If the provided credentials are invalid, an Exception will be thrown instead.
+     * This method implements the method <code>loginToDataBase(String, String)</code> from the interface by
+     * attempting to create a <code>TravelAgencyEntityManagerFactory</code> object with the <code>username</code>
+     * and <code>password</code> parameters provided
      * @param username database username
      * @param password datebase password to the username provided
-     * @return entity manager factory
+     * @return <code>TravelAgencyEntityManagerFactory</code> object
      */
-    public static TravelAgencyEntityManagerFactory loginToDataBase(String username, String password) {
+    @Override
+    public TravelAgencyEntityManagerFactoryImplementation loginToDataBase(String username, String password) {
         Map<String, String> loginProperties = new HashMap<>();
         loginProperties.put("javax.persistence.jdbc.user", username);
         loginProperties.put("javax.persistence.jdbc.password", password);
         try {
-            return new TravelAgencyEntityManagerFactory(loginProperties);
+            return new TravelAgencyEntityManagerFactoryImplementation(loginProperties);
         } catch(RuntimeException e) {
             final String MSG = String.format(MSG_UNABLE_TO_LOGIN, username, password);
             logger.warn(MSG);

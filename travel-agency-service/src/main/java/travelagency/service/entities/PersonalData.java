@@ -172,7 +172,7 @@ public class PersonalData {
 
   @Override
   public boolean equals(Object obj) {
-    if(obj != null && obj.getClass().equals(this.getClass())) {
+    if(obj != null && obj.getClass().equals(getClass())) {
       PersonalData data = (PersonalData) obj;
       return
           ((id == null && data.getId() == null) || id.equals(data.getId())) &&
