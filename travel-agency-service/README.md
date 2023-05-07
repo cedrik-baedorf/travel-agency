@@ -30,22 +30,18 @@ cd travelagency-agency/travelagency-agency-service/
 
 3. Navigate to the `travel-agency-service/docs/database` directory:
 
-use the `DatenbankSetup.pdf` guide to set up the database or navigate to the `travel-agency-service/src/main/resources/travelagency/service/database`
-directory and execute the file `TravelAgencyServiceDatabaseSetup.sql`
+use the `DatenbankSetup.pdf` guide to set up the database properly
 
 4. Open the project in your favorite Java IDE.
 
-5. Configure the project's arguments in your IDE with the following values:
+5. Attempt to build the project and run it using the javafx:run plugin:
 
-```
-"landing_page.fxml" "de.properties"
-```
+note that in some cases this does not work. In that case please configure a regular run configuration manually using the
+module `travel-agency-service` and main class `TravelAgencyServiceApplication`.
 
-*Note: Replace `de.properties` with the appropriate language properties file if needed.*
+6. To change the language add the name of the new language file as the first argument of your javafx:run/regular run configuration
 
-6. Configure your JavaFX SDK and MySQL Server settings in your IDE.
-
-7. Build and run the project.
+note that the default language file `en_US.properties` will be loaded if no argument is provided.
 
 ## Usage
 
