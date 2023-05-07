@@ -47,16 +47,6 @@ INSERT INTO `customer` (`customer_id`, `IBAN`, `personal_data_id`, `billing_addr
 	(4, 'DE99964848432000054564230000544654', 6, 4),
 	(5, 'DE11011000011010111001000110101001', 7, 8);
 
--- export data of table travel-agency-service_db.traveller: 6 rows
-DELETE FROM `traveller`;
-INSERT INTO `traveller` (`passport_id`, `place_of_birth`, `personal_data_id`) VALUES
-	('C12345678', 'Köln-Müngersdorf', 1),
-	('C84615846', 'Hoffenheim', 2),
-	('C49519545', 'Berlin', 3),
-	('C75424278', 'Scranton, PA', 4),
-	('C58757857', 'Entenhausen', 5),
-	('C78578578', 'Musterstadt', 6);
-
 -- export data of table travel-agency-service_db.hotel: 3 rows
 DELETE FROM `hotel`;
 INSERT INTO `hotel` (`hotel_id`, `name`, `price_per_person`, `currency_key`, `address_id`) VALUES
