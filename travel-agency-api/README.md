@@ -1,12 +1,11 @@
 # Travel Agency API
 
-Welcome to the Travel Agency API! This RESTful API provides easy access to hotel and flight connection data for developers and travelagency agencies. With a simple and straightforward interface, you can quickly integrate our API into your applications to offer rich travelagency information to your users.
+Welcome to the Travel Agency API! This RESTful API provides easy access to bookings data for developers and travel agencies.
+Here you can find the according **Swagger UI** for further information src/main/resources/index.html.
 
 ## Features
 
-- Retrieve a list of hotels with relevant information, such as name, location, and ratings.
-- Access flight connection data, including departure and arrival times, airlines, and airport information.
-- Secure authentication to ensure that only authorized users can access the data.
+- Retrieve a list of bookings with all information according to the specific bookings.
 
 ## Getting Started
 
@@ -14,27 +13,19 @@ To use the Travel Agency API, you'll need to follow these steps:
 
 1. **Request API access**: Contact us at [anna.gosser@hwg-lu.de](mailto:email@example.com), [cedrik.baedorf@hwg-lu.de](mailto:email@example.com), [jonas.becker@hwg-lu.de](mailto:email@example.com), [florian.veitz@hwg-lu.de](mailto:email@example.com) to request access to our API. You'll receive an API key that you'll need to include in your requests.
 
-2. **Integrate the API**: Use the provided API endpoints to fetch hotel and flight connection data in your application.
-
-3. **Test your integration**: Make sure to test your integration thoroughly before deploying it to production.
+2. **Integrate the API**: Use the provided API endpoints to fetch booking data in your application.
 
 ## API Endpoints
 
 The Travel Agency API provides the following endpoints:
 
-### Hotels
+### Bookings
 
-- **URL**: `/getHotels`
+- **URL**: `/getBookings`
 - **Method**: `GET`
 - **URL Params**: `username=[string]&password=[string]`
 - **Response**: A JSON-formatted list of hotels and their relevant information.
 
-### Flight Connections
-
-- **URL**: `/getFlightConnections`
-- **Method**: `GET`
-- **URL Params**: `username=[string]&password=[string]`
-- **Response**: A JSON-formatted list of flight connections and their relevant information.
 
 ## Authentication
 
