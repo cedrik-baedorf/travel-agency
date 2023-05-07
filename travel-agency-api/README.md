@@ -29,7 +29,7 @@ The Travel Agency API provides the following endpoints:
 
 ## Authentication
 
-The Travel Agency API requires authentication for each request. You'll need to include your username and password as URL parameters in each API call. For example:
+The Travel Agency API requires authentication for each request. You'll need to include your username and password as URL parameters in each API call. For the prove of concept use those valid credentials in the URI:
 
 ```
 https://api.example.com/getHotels?username=demo&password=123
