@@ -34,7 +34,7 @@ public class TravelAgencyServiceApplication extends Application {
     private static final String MSG_FXML_LOADING_FAILED = "Unable to load fxml file with path %s";
 
     private Stage stage;
-    private String mainView = "";
+    public static final String INIT_VIEW = "landing_page.fxml";
 
     private TravelAgencyEntityManagerFactory entityManagerFactory;
 
@@ -45,13 +45,12 @@ public class TravelAgencyServiceApplication extends Application {
         //read parameters from main(String[] args) method
         List<String> parameters = this.getParameters().getRaw();
         switch(parameters.size()) {
-            case 2: languageFile = parameters.get(1);
-            case 1: mainView = parameters.get(0);
+            case 1: languageFile = parameters.get(0);
         }
 
         //set up stage
         this.stage = stage;
-        setRoot(mainView, new LandingPageController(this));
+        setRoot(INIT_VIEW, new LandingPageController(this));
         this.stage.setMaximized(true);
         this.stage.show();
     }
