@@ -3,6 +3,7 @@ module travelagency.api {
     requires java.sql;
     requires com.google.gson;
     requires org.apache.logging.log4j;
+    requires travelagency.service;
 
     exports travelagency.api;
 }

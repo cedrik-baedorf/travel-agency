@@ -5,8 +5,6 @@ import java.io.OutputStream;
 
 import com.sun.net.httpserver.HttpExchange;
 
-import static travelagency.api.Authenticator.*;
-
 /**
  * This class handles incoming requests for hotels and flights and generates responses accordingly.
  * It checks the requester's credentials and sends responses with hotel and flight connection data.
@@ -17,20 +15,17 @@ import static travelagency.api.Authenticator.*;
 public class RequestHandler {
 
     private final Authenticator authenticator;
-    private final RestServiceImpl restServiceImpl;
-    private final DbService dbService;
+    private final RestService restService;
 
     /**
      * Initializes the RequestHandler with the given services.
      *
-     * @param authenticator   The authenticator service to validate request credentials.
-     * @param restServiceImpl The REST service implementation for handling request processing.
-     * @param dbService       The database service for data retrieval.
+     * @param authenticator     The authenticator service to validate request credentials.
+     * @param restService       The REST service for handling request processing.
      */
-    public RequestHandler(Authenticator authenticator, RestServiceImpl restServiceImpl, DbService dbService) {
+    public RequestHandler(Authenticator authenticator, RestService restService) {
         this.authenticator = authenticator;
-        this.restServiceImpl = restServiceImpl;
-        this.dbService = dbService;
+        this.restService = restService;
     }
 
     /**
@@ -41,15 +36,12 @@ public class RequestHandler {
      * @throws IOException If an I/O error occurs while handling the request.
      */
     void handleRequest(HttpExchange exchange, RequestType requestType) throws IOException {
-        String username = extractUsername(exchange.getRequestURI().toString());
-        String password = extractPassword(exchange.getRequestURI().toString());
-        if (checkCredentials(authenticator.getCredentialsMap(), username, password)) {
+        String username = authenticator.extractUsername(exchange.getRequestURI().toString());
+        String password = authenticator.extractPassword(exchange.getRequestURI().toString());
+        if (authenticator.checkCredentials(username, password)) {
             String response = "";
-            if (requestType == RequestType.HOTELS) {
-                response = restServiceImpl.getHotels(dbService.getConnection());
-            } else if (requestType == RequestType.FLIGHTS) {
-                response = restServiceImpl.getFlightConnections(dbService.getConnection());
-            }
+            if(requestType == RequestType.BOOKINGS)
+                response = restService.getBookings();
 
             if (response != null) {
                 exchange.sendResponseHeaders(200, response.getBytes().length);
@@ -70,24 +62,13 @@ public class RequestHandler {
         }
     }
 
-
     /**
      * The method is the request handler for the hotel GET request.
      *
      * @param exchange The HttpExchange object for handling the request.
      * @throws IOException If an I/O error occurs while handling the request.
      */
-    public void handleHotelsRequest(HttpExchange exchange) throws IOException {
-        handleRequest(exchange, RequestType.HOTELS);
-    }
-
-    /**
-     * The method is the request handler for the flight connection GET request.
-     *
-     * @param exchange The HttpExchange object for handling the request.
-     * @throws IOException If an I/O error occurs while handling the request.
-     */
-    public void handleFlightsRequest(HttpExchange exchange) throws IOException {
-        handleRequest(exchange, RequestType.FLIGHTS);
+    public void handleBookingsRequest(HttpExchange exchange) throws IOException {
+        handleRequest(exchange, RequestType.BOOKINGS);
     }
 }
