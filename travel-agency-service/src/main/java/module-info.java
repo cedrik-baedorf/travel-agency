@@ -19,11 +19,13 @@ module travelagency.service {
     exports travelagency.service;
     exports travelagency.service.controllers;
   opens travelagency.service.controllers to javafx.fxml;
-    exports travelagency.service.database;
   opens travelagency.service.service.consumption to javafx.fxml;
     exports travelagency.service.service.consumption;
     exports travelagency.service.service.data;
+
   opens travelagency.service.database to javafx.fxml, javafx.base, org.hibernate.orm.core, travelagency.api;
+    exports travelagency.service.database;
+
   opens travelagency.service.entities;
     exports travelagency.service.entities;
 }
