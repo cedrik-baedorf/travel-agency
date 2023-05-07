@@ -51,16 +51,9 @@ public class LocalServer {
      * @throws IOException  if an I/O error occurs when starting the server
      * @throws SQLException if an SQL error occurs when connecting to the database
      */
-    public void startServer() {
-        HttpServer server = null;
-        try {
-            server = HttpServer.create(new InetSocketAddress(8500), 0);
-            HttpContext flightsContext = server.createContext("/getFlightConnections");
-            flightsContext.setHandler(requestHandler::handleFlightsRequest);
 
-            HttpContext hotelsContext = server.createContext("/getHotels");
-            hotelsContext.setHandler(requestHandler::handleHotelsRequest);
     public void startServer() throws IOException, SQLException {
+        try {
         HttpServer server = HttpServer.create(new InetSocketAddress(8500), 0);
 
         HttpContext bookingsContext = server.createContext("/getBookings");
@@ -73,7 +66,5 @@ public class LocalServer {
             logger.error("Could not start local server. -> " + e.getMessage());
             throw new RuntimeException(e);
         }
-        dbService.connectToDB();
-        server.start();
     }
 }
