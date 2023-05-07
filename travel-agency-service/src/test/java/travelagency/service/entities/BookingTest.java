@@ -73,7 +73,6 @@ public class BookingTest {
         new Hotel(
             "Luxor Deluxe",
             20000.01,
-            "GIB",
             new Address(
                 "Meerenge von Gibraltar",
                 "1",
@@ -89,7 +88,6 @@ public class BookingTest {
         new Hotel(
             "Excelsior Hotel Ernst",
             500.00,
-            "EUR",
             new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
         ),
         15,
@@ -100,7 +98,6 @@ public class BookingTest {
         new Hotel(
             "Luxor Deluxe",
             20000.01,
-            "GIB",
             new Address(
                 "Meerenge von Gibraltar",
                 "1",
@@ -116,7 +113,6 @@ public class BookingTest {
         new Hotel(
             "Excelsior Hotel Ernst",
             500.00,
-            "EUR",
             new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
         ),
         15,
@@ -127,7 +123,6 @@ public class BookingTest {
         new Hotel(
             "Billig Hotel",
             1.99,
-            "EUR",
             new Address(
                 "Reeperbahn",
                 "69",
@@ -143,7 +138,6 @@ public class BookingTest {
         new Hotel(
             "Excelsior Hotel Ernst",
             500.00,
-            "EUR",
             new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
         ),
         15,

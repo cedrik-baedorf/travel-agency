@@ -123,7 +123,7 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
             this.PRICE = price;
             this.setNumberOfGuests(guests);
             this.setNumberOfNights(nights);
-            this.setHotel(new Hotel(name, 0, "EUR", address));
+            this.setHotel(new Hotel(name, 0, address));
         }
 
         @Override
