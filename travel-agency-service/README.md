@@ -43,6 +43,11 @@ module `travel-agency-service` and main class `TravelAgencyServiceApplication`.
 
 note that the default language file `en_US.properties` will be loaded if no argument is provided.
 
+7. For further information in the projects architecture check out our documentation
+
+database scheme : `travel-agency-service/docs/database/Database - UML Diagrams.pdf`
+service architecture : `travel-agency-service/docs/service/Service - UML Diagrams.pdf`
+
 ## Usage
 
 The Travel Agency Service application uses the following color scheme:
