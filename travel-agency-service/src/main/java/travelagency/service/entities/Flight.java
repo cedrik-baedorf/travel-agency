@@ -126,7 +126,7 @@ public class Flight {
    * Getter-method for the <code>id</code> attribute.
    * @return unique identification number
    */
-  public Integer getId() {
+  public Integer getID() {
     return id;
   }
 
@@ -241,8 +241,8 @@ public class Flight {
           departureTimestamp  = this.getDepartureTimestamp(),
           arrivalTimestamp    = this.getArrivalTimestamp();
       return
-          ((id == null && flight.getId() == null)
-              || id.equals(flight.getId())) &&
+          ((id == null && flight.getID() == null)
+              || id.equals(flight.getID())) &&
           ((flightConnection == null && flight.getFlightConnection() == null)
               || flightConnection.equals(flight.getFlightConnection())) &&
           ((departureTimestamp == null && flight.getDepartureTimestamp() == null)

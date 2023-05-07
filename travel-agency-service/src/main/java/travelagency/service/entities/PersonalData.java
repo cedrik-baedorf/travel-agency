@@ -86,7 +86,7 @@ public class PersonalData {
    * Getter-method for the <code>id</code> attribute.
    * @return unique identification number
    */
-  public Integer getId() {
+  public Integer getID() {
     return id;
   }
 
@@ -175,7 +175,7 @@ public class PersonalData {
     if(obj != null && obj.getClass().equals(getClass())) {
       PersonalData data = (PersonalData) obj;
       return
-          ((id == null && data.getId() == null) || id.equals(data.getId())) &&
+          ((id == null && data.getID() == null) || id.equals(data.getID())) &&
           ((lastName == null && data.getLastName() == null) || lastName.equals(data.getLastName())) &&
           ((firstName == null && data.getFirstName() == null) || firstName.equals(data.getFirstName())) &&
           ((middleName == null && data.getMiddleName() == null) || middleName.equals(data.getMiddleName())) &&

@@ -47,6 +47,11 @@
             <version>5.2.0</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>travel.agency</groupId>
+            <artifactId>travel-agency-service</artifactId>
+            <version>1.0</version>
+        </dependency>
     </dependencies>
 
 </project>

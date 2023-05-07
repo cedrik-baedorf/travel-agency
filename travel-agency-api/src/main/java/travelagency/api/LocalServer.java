@@ -5,6 +5,9 @@ import java.net.InetSocketAddress;
 
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpServer;
+import travelagency.service.database.TravelAgencyDatabaseAuthenticator;
+import travelagency.service.database.TravelAgencyServiceFactory;
+import travelagency.service.service.data.TravelAgencyViewDataService;
 
 import java.sql.SQLException;
 
@@ -19,7 +22,6 @@ import java.sql.SQLException;
  */
 public class LocalServer {
 
-    private final DbService dbService;
     private final RestServiceImpl restServiceImpl;
     private final Authenticator authenticator;
     private final RequestHandler requestHandler;
@@ -28,10 +30,11 @@ public class LocalServer {
      * Constructs a LocalServer instance, initializing required services and handlers.
      */
     public LocalServer() {
-        dbService = new DbService();
-        restServiceImpl = new RestServiceImpl();
+        TravelAgencyServiceFactory factory = new TravelAgencyDatabaseAuthenticator().loginToDataBase("DEMO_USER", "PASSWORD");
+        TravelAgencyViewDataService dataService = factory.createViewDataService();
+        restServiceImpl = new RestServiceImpl(dataService);
         authenticator = new Authenticator();
-        requestHandler = new RequestHandler(authenticator, restServiceImpl, dbService);
+        requestHandler = new RequestHandler(authenticator, restServiceImpl);
     }
 
     public static void main(String[] args) throws IOException, SQLException {
@@ -54,8 +57,9 @@ public class LocalServer {
         HttpContext hotelsContext = server.createContext("/getHotels");
         hotelsContext.setHandler(requestHandler::handleHotelsRequest);
 
-        server.start();
+        HttpContext bookingsContext = server.createContext("/getBookings");
+        bookingsContext.setHandler(requestHandler::handleBookingsRequest);
 
-        dbService.connectToDB();
+        server.start();
     }
 }
