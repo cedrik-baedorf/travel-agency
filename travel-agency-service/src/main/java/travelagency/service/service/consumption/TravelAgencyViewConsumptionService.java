@@ -12,6 +12,11 @@ import java.util.List;
 public interface TravelAgencyViewConsumptionService {
 
   /**
+   * Currency used for this Service
+   */
+  public String CURRENCY_KEY = "EUR";
+
+  /**
    * This method returns a <code>List<BookingConsumable></code> object filtered by customer ID, and the customer's last name.
    * If no corresponding booking is found, this method shall return an empty <code>List</code> object.
    * @param customerID An <code>int</code> of the customer ID to be filtered by.

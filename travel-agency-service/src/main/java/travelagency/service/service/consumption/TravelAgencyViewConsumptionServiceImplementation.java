@@ -46,7 +46,7 @@ public class TravelAgencyViewConsumptionServiceImplementation implements TravelA
                 ),
                 booking.getDate(),
                 Math.floor(booking.getTotalPrice() * 100) / 100,
-                "EUR"
+                CURRENCY_KEY
             ));
         }
         return bookingConsumables;
@@ -66,7 +66,8 @@ public class TravelAgencyViewConsumptionServiceImplementation implements TravelA
                 trip.getID(),
                 trip.getHotelBookingSet().size(),
                 trip.getFlightBookingSet().size(),
-                Math.floor(trip.getTotalPrice() * 100) / 100
+                Math.floor(trip.getTotalPrice() * 100) / 100,
+                CURRENCY_KEY
             ));
         }
         return tripConsumables;
@@ -87,7 +88,8 @@ public class TravelAgencyViewConsumptionServiceImplementation implements TravelA
                 hotelBooking.getHotel().getAddress().toString(),
                 hotelBooking.getNumberOfGuests(),
                 hotelBooking.getNumberOfNights(),
-                Math.floor(hotelBooking.getTotalPrice() * 100) / 100
+                Math.floor(hotelBooking.getTotalPrice() * 100) / 100,
+                CURRENCY_KEY
             ));
         }
         return hotelBookingConsumables;
@@ -117,7 +119,8 @@ public class TravelAgencyViewConsumptionServiceImplementation implements TravelA
                 flight.getArrivalTimestamp().getZone().toString(),
                 flightBooking.getNumberOfPassengers(),
                 (int) flight.getFlightDuration().toMinutes(),
-                Math.floor(flightBooking.getTotalPrice() * 100) / 100
+                Math.floor(flightBooking.getTotalPrice() * 100) / 100,
+                CURRENCY_KEY
             ));
         }
         return flightBookingConsumables;

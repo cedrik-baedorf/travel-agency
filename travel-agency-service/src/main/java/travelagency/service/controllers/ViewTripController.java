@@ -6,8 +6,6 @@ import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
@@ -52,9 +50,15 @@ public class ViewTripController extends TravelAgencyController {
     @FXML public Text searchBookings;
     @FXML public Text createBooking;
     @FXML public Button logoutButton;
-
     @FXML public ScrollPane scrollPane;
-    @FXML public Group flightInformation;
+
+    //flight information
+    @FXML public Group flightInformationGroup;
+    @FXML public Text flightInformationText;
+
+    //hotel information
+    @FXML public Group hotelInformationGroup;
+    @FXML public Text hotelInformationText;
 
     /**
      * service used to display trip details
@@ -85,13 +89,17 @@ public class ViewTripController extends TravelAgencyController {
      */
     private void setTexts(String languageFile) {
         Properties languageProperties = LanguagePropertiesLoader.loadProperties(
-                TravelAgencyServiceApplication.LANGUAGE_DIRECTORY + "starting_page/", languageFile
+                TravelAgencyServiceApplication.LANGUAGE_DIRECTORY + "view_trip/", languageFile
         );
         agencyName.setText(languageProperties.getProperty("menu.agencyName", "Agency Reis"));
         home.setText(languageProperties.getProperty("menu.home", "Home"));
         createBooking.setText(languageProperties.getProperty("menu.createBooking", "New Booking"));
         searchBookings.setText(languageProperties.getProperty("menu.showBookings", "Show Bookings"));
         logoutButton.setText(languageProperties.getProperty("menu.logout", "LOG OUT"));
+
+        flightInformationText.setText(languageProperties.getProperty("flight.information", "Flight Information"));
+
+        hotelInformationText.setText(languageProperties.getProperty("hotel.information", "Hotel Information"));
     }
 
     /**
@@ -112,7 +120,7 @@ public class ViewTripController extends TravelAgencyController {
         List<FlightBookingConsumable> flightBookings = service.getFlightBookings(tripID);
         for(int i = 0; i < flightBookings.size(); i++) {
             Group flightGroup = createFlightGroup(flightBookings.get(i));
-            flightInformation.getChildren().add(flightGroup);
+            flightInformationGroup.getChildren().add(flightGroup);
             flightGroup.setLayoutY(i * 250);
         }
     }
