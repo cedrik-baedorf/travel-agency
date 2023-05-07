@@ -24,7 +24,7 @@ import java.sql.SQLException;
  */
 public class LocalServer {
 
-    private final RestServiceImpl restServiceImpl;
+    private final RestService restServiceImpl;
     private final Authenticator authenticator;
     private final RequestHandler requestHandler;
     private final Logger logger = LogManager.getLogger(LocalServer.class);
