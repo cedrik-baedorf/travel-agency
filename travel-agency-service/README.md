@@ -28,13 +28,10 @@ git clone https://github.com/cedrik-baedorf/travelagency-agency.git
 cd travelagency-agency/travelagency-agency-service/
 ```
 
-3. Run all three SQL files to set up the database:
+3. Navigate to the `travel-agency-service/docs/database` directory:
 
-```
-mysql -u <username> -p <password> < create_database.sql
-mysql -u <username> -p <password> < create_tables.sql
-mysql -u <username> -p <password> < insert_data.sql
-```
+use the `DatenbankSetup.pdf` guide to set up the database or navigate to the `travel-agency-service/src/main/resources/travelagency/service/database`
+directory and execute the file `TravelAgencyServiceDatabaseSetup.sql`
 
 4. Open the project in your favorite Java IDE.
 
