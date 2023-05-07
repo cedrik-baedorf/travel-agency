@@ -11,8 +11,6 @@
 <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" xmlns="http://javafx.com/javafx/17.0.2-ea"
             xmlns:fx="http://javafx.com/fxml/1" fx:controller="travelagency.service.controllers.ViewTripController">
     <Pane>
-        <Rectangle id="bottomLine" fill="#3B768A" height="1" layoutX="114" layoutY="922" width="1207">
-        </Rectangle>
         <Group id="taskbar">
             <Rectangle id="background" fill="#FFFFFF" height="102" width="1600">
             </Rectangle>
@@ -48,97 +46,21 @@
             </Group>
             <Rectangle id="dividerLine" fill="#3B768A" height="1" layoutY="102" width="1600"/>
         </Group>
-        <Group fx:id="existing_bookings" layoutX="160" layoutY="142">
-            <Group fx:id="exisiting_trip_6" layoutX="27" layoutY="13">
-                <Group id="duration" layoutX="802" layoutY="8">
-                    <Text id="detailsDurationText" fill="#000000" layoutX="3.6666666666667" layoutY="20"
-                          textAlignment="CENTER" wrappingWidth="102">
-                        <font>
-                            <Font name="Poppins" size="20"/>
-                        </font>
-                    </Text>
-                    <Text id="detailsDuration" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="197">
-                        <font>
-                            <Font name="Poppins" size="18"/>
-                        </font>
-                    </Text>
-                </Group>
-                <Group id="destination" layoutX="566" layoutY="8">
-                    <Text id="detailsDateText" fill="#000000" layoutX="3.6666666666667" layoutY="20"
-                          textAlignment="CENTER" wrappingWidth="187">
-                        <font>
-                            <Font name="Poppins" size="20"/>
-                        </font>
-                    </Text>
-                    <Text id="detailsDate" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="258">
-                        <font>
-                            <Font name="Poppins" size="18"/>
-                        </font>
-                    </Text>
-                </Group>
-                <Group id="customerName" layoutX="347" layoutY="8">
-                    <Text id="detailsCustomerNameText" fill="#000000" layoutX="3.6666666666667" layoutY="20"
-                          textAlignment="CENTER" wrappingWidth="182">
-                        <font>
-                            <Font name="Poppins" size="20"/>
-                        </font>
-                    </Text>
-                    <Text id="detailsCustomerName" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="197">
-                        <font>
-                            <Font name="Poppins" size="18"/>
-                        </font>
-                    </Text>
-                </Group>
-                <Group id="customerID" layoutX="177" layoutY="8">
-                    <Text id="detailsCustomerIDText" fill="#000000" layoutX="3.6666666666667" layoutY="20"
-                          textAlignment="CENTER" wrappingWidth="140">
-                        <font>
-                            <Font name="Poppins" size="20"/>
-                        </font>
-                    </Text>
-                    <Text id="detailsCustomerID" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="121">
-                        <font>
-                            <Font name="Poppins" size="18"/>
-                        </font>
-                    </Text>
-                </Group>
-                <Group id="bookingID" layoutX="37" layoutY="8">
-                    <Text id="detailsBookingIDText" fill="#000000" layoutX="3.6666666666667" layoutY="20"
-                          textAlignment="CENTER" wrappingWidth="110">
-                        <font>
-                            <Font name="Poppins" size="20"/>
-                        </font>
-                    </Text>
-                    <Text id="detailsBookingID" fill="#000000" layoutX="6" layoutY="52" wrappingWidth="118">
-                        <font>
-                            <Font name="Poppins" size="18"/>
-                        </font>
-                    </Text>
-                </Group>
-            </Group>
+
+        <Group fx:id="flightInformationGroup" layoutX="50" layoutY="300">
+            <Text fx:id="flightInformationText" fill="#3B768A" wrappingWidth="433" textAlignment="CENTER">
+                <font>
+                    <Font name="Merriweather" size="40"/>
+                </font>
+            </Text>
         </Group>
 
-        <Group fx:id="flightInformation" layoutX="50" layoutY="300">
-
+        <Group fx:id="hotelInformationGroup" layoutX="900" layoutY="300">
+            <Text fx:id="hotelInformationText" fill="#3B768A" wrappingWidth="433" textAlignment="CENTER">
+                <font>
+                    <Font name="Merriweather" size="40"/>
+                </font>
+            </Text>
         </Group>
-
-        <Text fx:id="hotel_information_ek2" fill="#3B768A" layoutX="929.33333333333" layoutY="322"
-              text="Hotel Information" wrappingWidth="433">
-            <font>
-                <Font name="Merriweather" size="40"/>
-            </font>
-        </Text>
-
-        <Button layoutX="161.0" layoutY="934.0" text="ADJUST BOOKING" textAlignment="CENTER">
-            <font>
-                <Font name="Mako" size="24"/>
-            </font>
-        </Button>
-
-        <Button layoutX="490.0" layoutY="928.0" text="DELETE BOOKING" textAlignment="CENTER">
-            <font>
-                <Font name="Mako" size="24"/>
-            </font>
-        </Button>
     </Pane>
 </ScrollPane>

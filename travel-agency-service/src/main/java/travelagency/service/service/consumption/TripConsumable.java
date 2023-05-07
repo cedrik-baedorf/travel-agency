@@ -1,7 +1,7 @@
 package travelagency.service.service.consumption;
 
 public record TripConsumable(
-    Integer tripID, Integer numberOfHotels, Integer numberOfFlights, Double totalPrice
+    Integer tripID, Integer numberOfHotels, Integer numberOfFlights, Double totalPrice, String currencyKey
 ) {
 
     /**
@@ -27,5 +27,11 @@ public record TripConsumable(
      * @return total price
      */
     public Double getTotalPrice() { return totalPrice; }
+
+    /**
+     * Additional getter for tableView-compatibility
+     * @return currencyKey
+     */
+    public String getCurrencyKey() { return currencyKey; }
 
 }

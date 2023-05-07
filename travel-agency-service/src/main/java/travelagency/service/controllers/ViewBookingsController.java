@@ -117,7 +117,7 @@ public class ViewBookingsController extends TravelAgencyController {
      */
     private void setTexts(String languageFile) {
         Properties languageProperties = LanguagePropertiesLoader.loadProperties(
-            TravelAgencyServiceApplication.LANGUAGE_DIRECTORY + "starting_page/", languageFile
+            TravelAgencyServiceApplication.LANGUAGE_DIRECTORY + "view_bookings/", languageFile
         );
         agencyName.setText(languageProperties.getProperty("menu.agencyName", "Agency Reis"));
         home.setText(languageProperties.getProperty("menu.home", "Home"));
@@ -203,6 +203,7 @@ public class ViewBookingsController extends TravelAgencyController {
         TableColumn<TripConsumable, Integer> noHotelsCol = createTableColumn(languageProperties, "numberOfHotels", 200);
         TableColumn<TripConsumable, Integer> noFlightsCol = createTableColumn(languageProperties, "numberOfFlights", 200);
         TableColumn<TripConsumable, Double> totalPriceCol = createTableColumn(languageProperties, "totalPrice", 200);
+        TableColumn<TripConsumable, Double> currencyCol = createTableColumn(languageProperties, "currencyKey", 100);
 
         new Thread(() -> {
             List<TripConsumable> tripList = loadTripList();
@@ -212,6 +213,7 @@ public class ViewBookingsController extends TravelAgencyController {
                 tripTableView.getColumns().add(noHotelsCol);
                 tripTableView.getColumns().add(noFlightsCol);
                 tripTableView.getColumns().add(totalPriceCol);
+                tripTableView.getColumns().add(currencyCol);
 
                 tripTableView.getItems().clear();
                 tripTableView.setItems(tripObsList);
