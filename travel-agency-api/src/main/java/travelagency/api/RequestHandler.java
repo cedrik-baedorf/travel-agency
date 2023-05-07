@@ -2,12 +2,8 @@ package travelagency.api;
 
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Map;
 
 import com.sun.net.httpserver.HttpExchange;
-import travelagency.service.database.TravelAgencyDatabaseAuthenticator;
-import travelagency.service.database.TravelAgencyServiceFactory;
-import travelagency.service.service.data.TravelAgencyViewDataService;
 
 import static travelagency.api.Authenticator.*;
 
@@ -46,12 +42,8 @@ public class RequestHandler {
         String password = extractPassword(exchange.getRequestURI().toString());
         if (checkCredentials(authenticator.getCredentialsMap(), username, password)) {
             String response = "";
-            response = restServiceImpl.getBookings();
-            /*if (requestType == RequestType.HOTELS) {
-                response = restServiceImpl.getHotels(dbService.getConnection());
-            } else if (requestType == RequestType.FLIGHTS) {
-                response = restServiceImpl.getFlightConnections(dbService.getConnection());
-            }*/
+            if(requestType == RequestType.BOOKINGS)
+                response = restServiceImpl.getBookings();
 
             if (response != null) {
                 exchange.sendResponseHeaders(200, response.getBytes().length);
@@ -80,26 +72,5 @@ public class RequestHandler {
      */
     public void handleBookingsRequest(HttpExchange exchange) throws IOException {
         handleRequest(exchange, RequestType.BOOKINGS);
-    }
-
-
-    /**
-     * The method is the request handler for the hotel GET request.
-     *
-     * @param exchange The HttpExchange object for handling the request.
-     * @throws IOException If an I/O error occurs while handling the request.
-     */
-    public void handleHotelsRequest(HttpExchange exchange) throws IOException {
-        handleRequest(exchange, RequestType.HOTELS);
-    }
-
-    /**
-     * The method is the request handler for the flight connection GET request.
-     *
-     * @param exchange The HttpExchange object for handling the request.
-     * @throws IOException If an I/O error occurs while handling the request.
-     */
-    public void handleFlightsRequest(HttpExchange exchange) throws IOException {
-        handleRequest(exchange, RequestType.FLIGHTS);
     }
 }

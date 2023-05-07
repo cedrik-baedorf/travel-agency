@@ -1,9 +1,5 @@
 package travelagency.api;
 
-import travelagency.service.service.data.TravelAgencyViewDataService;
-
-import java.sql.Connection;
-
 /**
  * This interface fetches the requested data from the database via prepared statements.
  * @author I551381

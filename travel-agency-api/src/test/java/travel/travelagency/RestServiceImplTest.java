@@ -1,6 +1,5 @@
 package travel.travelagency;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import org.mockito.Mockito;
@@ -11,7 +10,6 @@ import travelagency.service.service.data.TravelAgencyViewDataService;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
