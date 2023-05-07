@@ -3,6 +3,8 @@ package travelagency.api;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This class manages the database connection for the application.
@@ -15,20 +17,27 @@ public class DbService {
 
     private Connection connection;
 
+    static final Logger logger = LogManager.getLogger(DbService.class);
+
     /**
      * Establishes a connection to the database using the provided credentials.
      *
      * @throws SQLException If a database access error occurs or the URL is null.
      */
-    public void connectToDB() throws SQLException {
-        if (connection == null || connection.isClosed()) {
-            connection = DriverManager.getConnection(
-                    "jdbc:mariadb://localhost:3306/travel-agency-service_db",
-                    "root", "password"
-            );
+    public void connectToDB() {
+        try {
+            if (connection == null || connection.isClosed()) {
+                connection = DriverManager.getConnection(
+                        "jdbc:mariadb://localhost:3306/travel-agency-service_db",
+                        "root", "password"
+                );
+            }
+
+        } catch (SQLException e) {
+            logger.error("Could not connect to database. -> " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
-
     /**
      * Returns the current database connection.
      *
@@ -43,9 +52,14 @@ public class DbService {
      *
      * @throws SQLException If a database access error occurs.
      */
-    public void closeConnection() throws SQLException {
-        if (connection != null && !connection.isClosed()) {
-            connection.close();
+    public void closeConnection() {
+        try {
+            if (connection != null && !connection.isClosed()) {
+                connection.close();
+            }
+        } catch (SQLException e) {
+            logger.error("Could not close local server. -> " + e.getMessage());
+            throw new RuntimeException(e);
         }
     }
 }

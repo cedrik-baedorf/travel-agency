@@ -5,6 +5,8 @@ import java.net.InetSocketAddress;
 
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpServer;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.SQLException;
 
@@ -23,6 +25,7 @@ public class LocalServer {
     private final RestServiceImpl restServiceImpl;
     private final Authenticator authenticator;
     private final RequestHandler requestHandler;
+    private final Logger logger = LogManager.getLogger(LocalServer.class);
 
     /**
      * Constructs a LocalServer instance, initializing required services and handlers.
@@ -42,20 +45,26 @@ public class LocalServer {
     /**
      * Starts the HTTP server, creates contexts for hotel and flight connections, and starts the database service.
      *
-     * @throws IOException   if an I/O error occurs when starting the server
-     * @throws SQLException  if an SQL error occurs when connecting to the database
+     * @throws IOException  if an I/O error occurs when starting the server
+     * @throws SQLException if an SQL error occurs when connecting to the database
      */
-    public void startServer() throws IOException, SQLException {
-        HttpServer server = HttpServer.create(new InetSocketAddress(8500), 0);
+    public void startServer() {
+        HttpServer server = null;
+        try {
+            server = HttpServer.create(new InetSocketAddress(8500), 0);
+            HttpContext flightsContext = server.createContext("/getFlightConnections");
+            flightsContext.setHandler(requestHandler::handleFlightsRequest);
 
-        HttpContext flightsContext = server.createContext("/getFlightConnections");
-        flightsContext.setHandler(requestHandler::handleFlightsRequest);
+            HttpContext hotelsContext = server.createContext("/getHotels");
+            hotelsContext.setHandler(requestHandler::handleHotelsRequest);
 
-        HttpContext hotelsContext = server.createContext("/getHotels");
-        hotelsContext.setHandler(requestHandler::handleHotelsRequest);
+            server.start();
 
-        server.start();
-
+            logger.info("Server wurde gestarted.");
+        } catch (IOException e) {
+            logger.error("Could not start local server. -> " + e.getMessage());
+            throw new RuntimeException(e);
+        }
         dbService.connectToDB();
     }
 }
