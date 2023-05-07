@@ -5,8 +5,6 @@ import java.io.OutputStream;
 
 import com.sun.net.httpserver.HttpExchange;
 
-import static travelagency.api.Authenticator.*;
-
 /**
  * This class handles incoming requests for hotels and flights and generates responses accordingly.
  * It checks the requester's credentials and sends responses with hotel and flight connection data.
@@ -17,17 +15,17 @@ import static travelagency.api.Authenticator.*;
 public class RequestHandler {
 
     private final Authenticator authenticator;
-    private final RestServiceImpl restServiceImpl;
+    private final RestService restService;
 
     /**
      * Initializes the RequestHandler with the given services.
      *
-     * @param authenticator   The authenticator service to validate request credentials.
-     * @param restServiceImpl The REST service implementation for handling request processing.
+     * @param authenticator     The authenticator service to validate request credentials.
+     * @param restService       The REST service for handling request processing.
      */
-    public RequestHandler(Authenticator authenticator, RestServiceImpl restServiceImpl) {
+    public RequestHandler(Authenticator authenticator, RestService restService) {
         this.authenticator = authenticator;
-        this.restServiceImpl = restServiceImpl;
+        this.restService = restService;
     }
 
     /**
@@ -38,12 +36,12 @@ public class RequestHandler {
      * @throws IOException If an I/O error occurs while handling the request.
      */
     void handleRequest(HttpExchange exchange, RequestType requestType) throws IOException {
-        String username = extractUsername(exchange.getRequestURI().toString());
-        String password = extractPassword(exchange.getRequestURI().toString());
-        if (checkCredentials(authenticator.getCredentialsMap(), username, password)) {
+        String username = authenticator.extractUsername(exchange.getRequestURI().toString());
+        String password = authenticator.extractPassword(exchange.getRequestURI().toString());
+        if (authenticator.checkCredentials(username, password)) {
             String response = "";
             if(requestType == RequestType.BOOKINGS)
-                response = restServiceImpl.getBookings();
+                response = restService.getBookings();
 
             if (response != null) {
                 exchange.sendResponseHeaders(200, response.getBytes().length);

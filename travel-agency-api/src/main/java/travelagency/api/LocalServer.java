@@ -51,12 +51,6 @@ public class LocalServer {
     public void startServer() throws IOException, SQLException {
         HttpServer server = HttpServer.create(new InetSocketAddress(8500), 0);
 
-        HttpContext flightsContext = server.createContext("/getFlightConnections");
-        flightsContext.setHandler(requestHandler::handleFlightsRequest);
-
-        HttpContext hotelsContext = server.createContext("/getHotels");
-        hotelsContext.setHandler(requestHandler::handleHotelsRequest);
-
         HttpContext bookingsContext = server.createContext("/getBookings");
         bookingsContext.setHandler(requestHandler::handleBookingsRequest);
 

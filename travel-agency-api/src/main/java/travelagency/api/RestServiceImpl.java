@@ -23,7 +23,6 @@ public class RestServiceImpl implements RestService {
     /**
      * Retrieves booking data from the data service and returns it as a JSON-formatted string.
      *
-     * @param dataService The data service used to retrieve booking data
      * @return A JSON-formatted string containing booking data.
      */
     public String getBookings() {
