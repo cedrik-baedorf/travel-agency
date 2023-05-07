@@ -35,7 +35,6 @@ public class TripTest {
       new Hotel(
         "Luxor Deluxe",
         20000.01,
-        "GIB",
         new Address(
           "Meerenge von Gibraltar",
           "1",
@@ -51,7 +50,6 @@ public class TripTest {
       new Hotel(
         "Excelsior Hotel Ernst",
         500.00,
-        "EUR",
         new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
       ),
       15,
@@ -62,7 +60,6 @@ public class TripTest {
         new Hotel(
             "Luxor Deluxe",
             20000.01,
-            "GIB",
             new Address(
                 "Meerenge von Gibraltar",
                 "1",
@@ -78,7 +75,6 @@ public class TripTest {
         new Hotel(
             "Excelsior Hotel Ernst",
             500.00,
-            "EUR",
             new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
         ),
         15,
@@ -89,7 +85,6 @@ public class TripTest {
         new Hotel(
             "Billig Hotel",
             1.99,
-            "EUR",
             new Address(
                 "Reeperbahn",
                 "69",
@@ -105,7 +100,6 @@ public class TripTest {
         new Hotel(
             "Excelsior Hotel Ernst",
             500.00,
-            "EUR",
             new Address("Trankgasse", "1-5", "50667", "Köln", "Deutschland")
         ),
         15,
@@ -124,8 +118,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       36
     ));
@@ -138,8 +131,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     ));
@@ -153,8 +145,7 @@ public class TripTest {
             LocalDate.of(2023, 5, 14),
             LocalTime.of(16, 15),
             "UTC-05:00",
-            299.99,
-            "EUR"
+            299.99
         ),
         36
     ));
@@ -167,8 +158,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     ));
@@ -182,8 +172,7 @@ public class TripTest {
         LocalDate.of(2023, 7, 31),
         LocalTime.of(7, 30, 38),
         "UTC+02:00",
-        599.99,
-        "EUR"
+        599.99
       ),
       4
     ));
@@ -196,8 +185,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     ));
