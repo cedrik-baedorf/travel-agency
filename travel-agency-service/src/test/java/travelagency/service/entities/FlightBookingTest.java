@@ -28,8 +28,7 @@ public class FlightBookingTest {
           LocalDate.of(2023, 5, 14),
           LocalTime.of(16, 15),
           "UTC-05:00",
-          299.99,
-          "EUR"
+          299.99
         ),
         36
     );
@@ -42,8 +41,7 @@ public class FlightBookingTest {
             LocalDate.of(2023, 5, 14),
             LocalTime.of(16, 15),
             "UTC-05:00",
-            299.99,
-            "EUR"
+            299.99
         ),
         36
     );
@@ -56,8 +54,7 @@ public class FlightBookingTest {
             LocalDate.of(2023, 7, 31),
             LocalTime.of(7, 30, 38),
             "UTC+02:00",
-            599.99,
-            "EUR"
+            599.99
         ),
         4
     );
@@ -122,8 +119,7 @@ public class FlightBookingTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     );
@@ -132,7 +128,7 @@ public class FlightBookingTest {
         DL0015 from FRA to ATL
         Departure:\s""" + testedFlightBooking.getFlight().getDepartureTimestamp().toString() + '\n' + """
         Arrival  :\s""" + testedFlightBooking.getFlight().getArrivalTimestamp().toString() + '\n' + """
-        Price    : 299.99 EUR
+        Price    : 299.99
         Passengers: 19""";
 
     assertEquals(expectedResult, testedFlightBooking.toString());

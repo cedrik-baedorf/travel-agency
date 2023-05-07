@@ -91,12 +91,6 @@ public class Flight {
   private Double pricePerPerson;
 
   /**
-   * three character currency key to the <code>pricePerPerson</code>
-   */
-  @Column(name = "currency_key")
-  private String currencyKey;
-
-  /**
    * Constructor creates a <code>Flight</code> object with initial attributes
    */
   public Flight() {
@@ -117,8 +111,8 @@ public class Flight {
    */
   public Flight(FlightConnection flightConnection, LocalDate dateOfDeparture,
       LocalTime timeOfDeparture, String timeZoneOfDeparture, LocalDate dateOfArrival,
-      LocalTime timeOfArrival, String timeZoneOfArrival, Double pricePerPerson,
-      String currencyKey) {
+      LocalTime timeOfArrival, String timeZoneOfArrival, Double pricePerPerson
+  ) {
     this.flightConnection = flightConnection;
     this.dateOfDeparture = dateOfDeparture;
     this.timeOfDeparture = timeOfDeparture;
@@ -127,7 +121,6 @@ public class Flight {
     this.timeOfArrival = timeOfArrival;
     this.timeZoneOfArrival = timeZoneOfArrival;
     this.pricePerPerson = pricePerPerson;
-    this.currencyKey = currencyKey;
   }
 
   /**
@@ -168,22 +161,6 @@ public class Flight {
    */
   public void setPricePerPerson(Double pricePerPerson) {
     this.pricePerPerson = pricePerPerson;
-  }
-
-  /**
-   * Getter-method for the <code>currencyKey</code> attribute.
-   * @return three character currency key to the <code>pricePerPerson</code>
-   */
-  public String getCurrencyKey() {
-    return currencyKey;
-  }
-
-  /**
-   * Setter-method for the <code>currencyKey</code> attribute.
-   * @param currencyKey new three character currency key to the <code>pricePerPerson</code>
-   */
-  public void setCurrencyKey(String currencyKey) {
-    this.currencyKey = currencyKey;
   }
 
   /**
@@ -274,9 +251,7 @@ public class Flight {
           ((arrivalTimestamp == null && flight.getArrivalTimestamp() == null)
               || arrivalTimestamp.equals(flight.getArrivalTimestamp())) &&
           ((pricePerPerson == null && flight.getPricePerPerson() == null)
-              || pricePerPerson.equals(flight.getPricePerPerson()))&&
-          ((currencyKey == null && flight.getCurrencyKey() == null)
-              || currencyKey.equals(flight.getCurrencyKey()));
+              || pricePerPerson.equals(flight.getPricePerPerson()));
     }
     return false;
   }
@@ -290,8 +265,7 @@ public class Flight {
         (flightConnection != null ? flightConnection.toString() + '\n' : "")
             + (departureTimestamp != null ? "Departure: " + departureTimestamp + '\n' : "")
             + (arrivalTimestamp != null   ? "Arrival  : " + arrivalTimestamp + '\n' : "")
-            + (pricePerPerson != null && currencyKey != null ?
-                  "Price    : " + pricePerPerson + " " + currencyKey : "");
+            + (pricePerPerson != null ? "Price    : " + pricePerPerson : "");
   }
 
   @Override
@@ -304,8 +278,7 @@ public class Flight {
             + (flightConnection != null   ? flightConnection.hashCode()   : null)
             + (departureTimestamp != null ? departureTimestamp.hashCode() : null)
             + (arrivalTimestamp != null   ? arrivalTimestamp.hashCode()   : null)
-            + (pricePerPerson != null     ? pricePerPerson.hashCode()     : null)
-            + (currencyKey != null        ? currencyKey.hashCode()        : null)).hashCode();
+            + (pricePerPerson != null     ? pricePerPerson.hashCode()     : null)).hashCode();
   }
 
 }

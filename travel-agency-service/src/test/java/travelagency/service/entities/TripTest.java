@@ -118,8 +118,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       36
     ));
@@ -132,8 +131,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     ));
@@ -147,8 +145,7 @@ public class TripTest {
             LocalDate.of(2023, 5, 14),
             LocalTime.of(16, 15),
             "UTC-05:00",
-            299.99,
-            "EUR"
+            299.99
         ),
         36
     ));
@@ -161,8 +158,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     ));
@@ -176,8 +172,7 @@ public class TripTest {
         LocalDate.of(2023, 7, 31),
         LocalTime.of(7, 30, 38),
         "UTC+02:00",
-        599.99,
-        "EUR"
+        599.99
       ),
       4
     ));
@@ -190,8 +185,7 @@ public class TripTest {
         LocalDate.of(2023, 5, 14),
         LocalTime.of(16, 15),
         "UTC-05:00",
-        299.99,
-        "EUR"
+        299.99
       ),
       19
     ));
