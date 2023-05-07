@@ -28,9 +28,7 @@ import org.apache.logging.log4j.Logger;
 import travelagency.service.TravelAgencyServiceApplication;
 import travelagency.service.service.consumption.BookingConsumable;
 import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
-import travelagency.service.service.consumption.TravelAgencyViewConsumptionServiceImplementation;
 import travelagency.service.service.consumption.TripConsumable;
-import travelagency.service.service.data.TravelAgencyViewDataServiceImplementation;
 
 /**
  * Controller to view 'view_bookings.fxml'
@@ -109,11 +107,7 @@ public class ViewBookingsController extends TravelAgencyController {
      */
     public void initialize() {
         setTexts(application.getLanguageFile());
-        service = new TravelAgencyViewConsumptionServiceImplementation(
-            new TravelAgencyViewDataServiceImplementation(
-                application.createEntityManager()
-            )
-        );
+        service = application.createViewConsumptionService();
         loadBookingsTableView();
     }
 

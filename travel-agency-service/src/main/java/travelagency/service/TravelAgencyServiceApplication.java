@@ -14,6 +14,7 @@ import org.apache.logging.log4j.Logger;
 import travelagency.service.controllers.LandingPageController;
 import travelagency.service.controllers.TravelAgencyController;
 import travelagency.service.database.TravelAgencyServiceFactory;
+import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
 
 import javax.persistence.EntityManager;
 
@@ -95,8 +96,8 @@ public class TravelAgencyServiceApplication extends Application {
         this.entityManagerFactory = factory;
     }
 
-    public EntityManager createEntityManager() {
-        return entityManagerFactory.createEntityManager();
+    public TravelAgencyViewConsumptionService createViewConsumptionService() {
+        return entityManagerFactory.createViewConsumptionService();
     }
 
     public static void main(String[] args) {

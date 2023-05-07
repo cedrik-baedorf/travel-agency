@@ -77,11 +77,7 @@ public class ViewTripController extends TravelAgencyController {
      */
     public void initialize() {
         setTexts(application.getLanguageFile());
-        service = new TravelAgencyViewConsumptionServiceImplementation(
-            new TravelAgencyViewDataServiceImplementation(
-                application.createEntityManager()
-            )
-        );
+        service = application.createViewConsumptionService();
         loadFlightBookings();
     }
 
