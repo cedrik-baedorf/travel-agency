@@ -18,8 +18,6 @@ import org.apache.logging.log4j.Logger;
 import travelagency.service.TravelAgencyServiceApplication;
 import travelagency.service.service.consumption.FlightBookingConsumable;
 import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
-import travelagency.service.service.consumption.TravelAgencyViewConsumptionServiceImplementation;
-import travelagency.service.service.data.TravelAgencyViewDataServiceImplementation;
 
 import java.util.List;
 import java.util.Properties;

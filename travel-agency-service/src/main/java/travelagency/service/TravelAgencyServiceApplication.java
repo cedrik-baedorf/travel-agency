@@ -16,8 +16,6 @@ import travelagency.service.controllers.TravelAgencyController;
 import travelagency.service.database.TravelAgencyServiceFactory;
 import travelagency.service.service.consumption.TravelAgencyViewConsumptionService;
 
-import javax.persistence.EntityManager;
-
 public class TravelAgencyServiceApplication extends Application {
 
     private String languageFile = "en_US.properties";
