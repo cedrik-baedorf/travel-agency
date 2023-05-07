@@ -291,7 +291,7 @@ public class BookingTest {
 
     String expectedResult =
       "Booking ID: null\n" +
-      "Date: " + bookingDate.toString() + '\n' +
+      "Date: " + bookingDate + '\n' +
       "Customer:\n" +
           customer.toString() + '\n' +
       "Trips:\n" +
