@@ -238,9 +238,9 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
 
     private List<TripConsumable> createTripConsumableList() {
         return List.of(
-            new TripConsumable(1, 5, 7, 99.99),
-            new TripConsumable(3, 0, 1, 29.99),
-            new TripConsumable(5, 4, 0, 129.99)
+            new TripConsumable(1, 5, 7, 99.99, "EUR"),
+            new TripConsumable(3, 0, 1, 29.99, "EUR"),
+            new TripConsumable(5, 4, 0, 129.99, "EUR")
         );
     }
 
@@ -260,10 +260,10 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
         return List.of(
             new HotelBookingConsumable(
                 "Excelsior", createAddress(1).toString(),
-                4, 2, 99.99),
+                4, 2, 99.99, "EUR"),
             new HotelBookingConsumable(
                 "Hotel", createAddress(2).toString(),
-                5, 0, 29.99)
+                5, 0, 29.99, "EUR")
         );
     }
 
@@ -312,13 +312,13 @@ public class TravelAgencyViewConsumptionServiceImplementationTest {
                 "LH1304",
                 "FRA", "2023-05-14", "11:00", "UTC+02:00",
                 "ATL", "2023-05-14", "16:00", "UTC-04:00",
-                1, 600, 999.99
+                1, 600, 999.99, "EUR"
             ),
             new FlightBookingConsumable(
                 "DL0015",
                 "ATL", "2023-07-29", "11:00", "UTC-04:00",
                 "FRA", "2023-07-29", "21:00", "UTC+02:00",
-                5, 600, 1299.99
+                5, 600, 1299.99, "EUR"
             )
         );
     }

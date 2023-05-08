@@ -332,9 +332,12 @@ public class ViewBookingsController extends TravelAgencyController {
      * listener for search bookings button in taskbar
      */
     public void _searchBookings_onClick() {
-        bookingIDTextField.clear();
-        customerIDTextField.clear();
-        customerNameTextField.clear();
+        if(bookingIDTextField != null)
+            bookingIDTextField.clear();
+        if(customerIDTextField != null)
+            customerIDTextField.clear();
+        if(customerNameTextField != null)
+            customerNameTextField.clear();
         this.loadBookingsTableView();
     }
 
@@ -389,6 +392,14 @@ public class ViewBookingsController extends TravelAgencyController {
             loader.setControllerFactory(c -> controller);
             Scene scene = application.loadScene(loader);
             application.setScene(scene);
+            controller.setBookingDetails(
+                    tripConsumable.tripID().toString(),
+                    bookingMasterDataCustomerID.getText(),
+                    bookingMasterDataCustomerName.getText(),
+                    bookingMasterDataDate.getText(),
+                    tripConsumable.totalPrice().toString(),
+                    bookingMasterDataCurrency.getText()
+            );
         } catch (LoadException e) {
             logger.error(e.getMessage());
         }
