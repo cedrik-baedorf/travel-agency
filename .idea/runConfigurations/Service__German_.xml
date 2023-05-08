@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Service (German)" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="travelagency.service.TravelAgencyServiceApplication" />
+    <module name="travel-agency-service" />
+    <option name="PROGRAM_PARAMETERS" value="&quot;de.properties&quot;" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
