@@ -50,8 +50,6 @@ public class TravelAgencyServiceApplication extends Application {
         //set up stage
         this.stage = stage;
         setRoot(INIT_VIEW, new LandingPageController(this));
-        this.stage.setMaximized(true);
-        this.stage.show();
     }
 
     public void setRoot(String rootView, TravelAgencyController controller) {
