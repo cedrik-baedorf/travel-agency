@@ -9,7 +9,7 @@ Travel Agency is a comprehensive Java-based project that helps users manage thei
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [Further Information](#further_information)
+- [Further Information](#further-information)
 - [Contact](#contact)
 
 ## Getting Started
