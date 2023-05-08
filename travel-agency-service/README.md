@@ -48,6 +48,31 @@ note that the default language file `en_US.properties` will be loaded if no argu
 database scheme : `travel-agency-service/docs/database/Database - UML Diagrams.pdf`
 service architecture : `travel-agency-service/docs/service/Service - UML Diagrams.pdf`
 
+## Packages
+
+1. JPA Entities
+
+package `travel-agency-service/src/main/java/travelagency/service/entities` contains all jpa entities used for the
+data scheme this service is based on.
+
+2. Database Connection
+
+package `travel-agency-service/src/main/java/travelagency/service/database` contains interface and implementation for
+`TravelAgencyServiceFactory` & `TravelAgencyAuthenticator`.
+
+3. Services
+
+package `travel-agency-service/src/main/java/travelagency/service/service` contains the services this module provides for the user interface,
+restful api, and any other external program that wants to use them.
+The data services are in package `data` & the consumption services are in package `consumption`.
+
+4. JavaFX Controllers
+
+package `travel-agency-service/src/main/java/travelagency/service/controllers` contains the controllers this modules uses for the
+user interface prototype application.
+Note that the user interface is only a prototype and does not cover all functions from the mock up.
+The services are also used separately from the user interface (e.g. restful api)
+
 ## Usage
 
 The Travel Agency Service application uses the following color scheme:
