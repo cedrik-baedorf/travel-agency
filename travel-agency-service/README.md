@@ -6,6 +6,7 @@ Travel Agency Service is a JavaFX-based application that allows users to manage 
 
 - [Prerequisites](#prerequisites)
 - [Installation](#installation)
+- [Packages](#packages)
 - [Usage](#usage)
 
 ## Prerequisites
