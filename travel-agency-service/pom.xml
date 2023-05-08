@@ -132,24 +132,11 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>travelagency.service.TravelAgencyServiceApplication</mainClass>
-                            <moduleName>travel-agency-service</moduleName>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
-                            <noManPages>true</noManPages>
-                            <stripDebug>true</stripDebug>
-                            <noHeaderFiles>true</noHeaderFiles>
+                            <mainClass>travelagency.service/travelagency.service.TravelAgencyServiceApplication</mainClass>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-    <distributionManagement>
-        <repository>
-            <id>travel-agency-service</id>
-            <url>https://github.com/cedrik-baedorf/travel-agency</url>
-        </repository>
-    </distributionManagement>
 </project>
