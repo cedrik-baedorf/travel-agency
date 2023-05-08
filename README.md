@@ -9,6 +9,7 @@ Travel Agency is a comprehensive Java-based project that helps users manage thei
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
+- [Further Information](#further_information)
 - [Contact](#contact)
 
 ## Getting Started
@@ -61,6 +62,11 @@ Contributions are welcome. Please follow the steps below:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin feature/YourFeature`)
 5. Create a new pull request
+
+## Further Information
+1. For further information check out the directory `docs/` for the presentation slides
+2. For additional information on the modules check out the `README.md` in the corresponding directories
+`travel-agency-service/` & `travel-agency-api`
 
 ## Contact
 
