@@ -2,7 +2,6 @@ package travelagency.service.database;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import travelagency.service.TravelAgencyServiceApplication;
 
 import java.util.HashMap;
 import java.util.Map;
