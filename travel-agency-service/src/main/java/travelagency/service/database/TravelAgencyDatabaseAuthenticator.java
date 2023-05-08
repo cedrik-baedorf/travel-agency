@@ -26,6 +26,12 @@ public class TravelAgencyDatabaseAuthenticator implements TravelAgencyAuthentica
         "Unable to log to persistence unit using username '%s' and password = '%s'";
 
     /**
+     * Message for a successful login attempt
+     */
+    private static final String MSG_NEW_LOGIN =
+            "User %s logged into the database";
+
+    /**
      * This method implements the method <code>loginToDataBase(String, String)</code> from the interface by
      * attempting to create a <code>TravelAgencyEntityManagerFactory</code> object with the <code>username</code>
      * and <code>password</code> parameters provided
@@ -34,12 +40,14 @@ public class TravelAgencyDatabaseAuthenticator implements TravelAgencyAuthentica
      * @return <code>TravelAgencyEntityManagerFactory</code> object
      */
     @Override
-    public TravelAgencyServiceFactoryImplementation loginToDataBase(String username, String password) {
+    public TravelAgencyServiceFactory loginToDataBase(String username, String password) {
         Map<String, String> loginProperties = new HashMap<>();
         loginProperties.put("javax.persistence.jdbc.user", username);
         loginProperties.put("javax.persistence.jdbc.password", password);
         try {
-            return new TravelAgencyServiceFactoryImplementation(loginProperties);
+            TravelAgencyServiceFactory factory = new TravelAgencyServiceFactoryImplementation(loginProperties);
+            logger.info(String.format(MSG_NEW_LOGIN, username));
+            return factory;
         } catch(RuntimeException e) {
             final String MSG = String.format(MSG_UNABLE_TO_LOGIN, username, password);
             logger.warn(MSG);

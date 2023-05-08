@@ -78,6 +78,7 @@ public class TravelAgencyServiceApplication extends Application {
 
     public void setScene(Scene scene) {
         stage.setScene(scene);
+        stage.setMaximized(true);
         stage.show();
     }
 

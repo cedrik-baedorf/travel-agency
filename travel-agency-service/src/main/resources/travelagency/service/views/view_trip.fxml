@@ -2,7 +2,6 @@
 
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
-<?import javafx.scene.effect.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
@@ -47,7 +46,89 @@
             <Rectangle id="dividerLine" fill="#3B768A" height="1" layoutY="102" width="1600"/>
         </Group>
 
-        <Group fx:id="flightInformationGroup" layoutX="50" layoutY="300">
+        <Group fx:id="bookingDetailsGroup" layoutX="255" layoutY="180">
+            <Text fx:id="bookingDetailsTitle" fill="#3B768A" wrappingWidth="800">
+                <font>
+                    <Font name="Merriweather" size="40"/>
+                </font>
+            </Text>
+            <Group id="bookingMasterDataGroup" layoutY="40">
+                <Text fx:id="bookingMasterDataBookingIDText" fill="#000000" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="tripMasterDataTripID" fill="#000000" layoutX="160" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="bookingMasterDataCustomerIDText" fill="#000000" layoutY="25" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="tripMasterDataCustomerID" fill="#000000" layoutX="160" layoutY="25"
+                      wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="bookingMasterDataCustomerNameText" fill="#000000" layoutY="50" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="tripMasterDataCustomerName" fill="#000000" layoutX="160" layoutY="50"
+                      wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+
+                <Text fx:id="bookingMasterDataDateText" fill="#000000" layoutX="320" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="tripMasterDataDate" fill="#000000" layoutX="480" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="bookingMasterDataPriceText" fill="#000000" layoutX="320" layoutY="25"
+                      wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="tripMasterDataPrice" fill="#000000" layoutX="480" layoutY="25" wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="bookingMasterDataCurrencyText" fill="#000000" layoutX="320" layoutY="50"
+                      wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+                <Text fx:id="tripMasterDataCurrency" fill="#000000" layoutX="480" layoutY="50"
+                      wrappingWidth="160">
+                    <font>
+                        <Font name="Poppins" size="20"/>
+                    </font>
+                </Text>
+            </Group>
+            <Button fx:id="backButton" layoutX="746.0" layoutY="40" textAlignment="CENTER"
+                    onAction="#_searchBookings_onClick">
+                <font>
+                    <Font name="Mako" size="24"/>
+                </font>
+            </Button>
+        </Group>
+
+        <Group fx:id="flightInformationGroup" layoutX="50" layoutY="400">
             <Text fx:id="flightInformationText" fill="#3B768A" wrappingWidth="433" textAlignment="CENTER">
                 <font>
                     <Font name="Merriweather" size="40"/>
@@ -55,7 +136,7 @@
             </Text>
         </Group>
 
-        <Group fx:id="hotelInformationGroup" layoutX="900" layoutY="300">
+        <Group fx:id="hotelInformationGroup" layoutX="900" layoutY="400">
             <Text fx:id="hotelInformationText" fill="#3B768A" wrappingWidth="433" textAlignment="CENTER">
                 <font>
                     <Font name="Merriweather" size="40"/>
